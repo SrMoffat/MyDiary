@@ -1,0 +1,13 @@
+/*
+Custom CSS Stylesheet
+Author: Ngige Gitau
+For: Book-A-Meal Web Application
+Updated: 18th April 2018
+*/
+
+body{
+	font: 15px/1.5 "Comic Sans MS", cursive, sans-serif;
+	padding:0;
+	margin:0;
+	background-color:#f4f4f4;
+}
