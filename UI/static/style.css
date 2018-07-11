@@ -35,6 +35,94 @@ ul{
 	padding-right:20px;
 	color:#ffffff;
 }
+.dark{
+	padding:15px;
+	background:#000000;
+	color:#ffffff;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+/* ----- Jumbotrn ----- */
+#jumbotrn {
+	border-radius:7px;
+	padding:15px;
+	color:#ffffff;
+	background:#000000;
+	margin-top: 25px; 
+	margin-left: 400px; 
+	margin-right: 400px;
+}
+#jumbotrn_container h2 {
+	text-align: center; 
+	color:#09D647; 
+}
+#jumbotrn_container p {
+	font-size:8pt;
+	text-align:center;
+}
+#jumbotrn_container a {
+	text-decoration:none;
+	color:#09D647;
+}
+
+
+
+
+
+/* Style input type text (Forms) */
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px;  
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical
+}
+
+/* Style input type email (Forms) */
+input[type=email], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical 
+}
+
+/* Style input type password (Forms) */
+input[type=password], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical 
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #109D3B;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
+
 
 
 
@@ -108,3 +196,4 @@ footer{
   text-align: center;
   border-top:#09D647 3px solid;
 }
+
