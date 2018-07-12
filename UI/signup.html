@@ -1,0 +1,71 @@
+<!-- MyDiary -->
+<!--signup.html-->
+
+<!-- Author: Gitau Ngige -->
+<!-- Updated: July 2018 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Online journal where users can pen down their thoughts and feelings. ">
+	<meta name="keywords" content="Online journal, web diary, reflection apps">
+  	<meta name="author" content="Ngige Gitau">
+	
+    <title>MyDiary | Sign Up!</title>
+	
+    <link rel="stylesheet" href="static/style.css">
+	<link rel="shortcut icon" href="static/images/favicon.png">
+</head>
+<body>
+	<!-- Navigation bar-->
+    <header>
+        <div class="container">
+            <div id="logo">
+				<h1>My<span class="highlight">Diary</span></h1>
+			</div>
+			<nav>
+			    <ul>
+					<li class = "current"><a href="signup.html">Sign Up</a></li> 
+					<li><a href="about.html">About</a></li>					 
+					<li><a href="index.html">Home</a></li>
+			    </ul>
+			</nav><!--end nav-->
+      </div><!--end branding container-->
+    </header><!--end header-->	
+	
+	<!-- jumbotron with form-->
+	<section id="jumbotrn">
+        <div class="container" id="jumbotrn_container">
+			<h2><b> Sign Up</b></h2>
+			<form action="dashboard.html">
+
+				<label for="username"> Username</label>
+				<input type="text" id="username" name="username" placeholder="Enter username">
+								
+				<label for="email"> Email</label>
+				<input type="email" id="password" name="email" placeholder="Enter email">
+				
+				<label for="password"> Password</label>
+				<input type="password" id="password" name="password" placeholder="Enter password">
+								
+				<label for=" confirm_password"> Confirm Password</label>
+				<input type="password" id="cpassword" name="cpassword" placeholder="confirm password">
+
+				<input type="submit" value="Sign Up">
+				
+			</form><!--end form-->
+			<p>Already have an account? <a href="signin.html">Sign In</a></p>
+        </div><!--end container-->
+    </section><!--end jumbotron section-->
+	
+	
+    <footer>
+      <p>4fr0c0d3 Copyright &copy; 2018</p>
+    </footer><!--end footer-->
+	
+	
+	
+</body>
+</html>

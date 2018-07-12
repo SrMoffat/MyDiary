@@ -1,0 +1,184 @@
+<!-- MyDiary -->
+<!--dashboard.html-->
+
+<!-- Author: Gitau Ngige -->
+<!-- Updated: July 2018 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Online journal where users can pen down their thoughts and feelings. ">
+	<meta name="keywords" content="Online journal, web diary, reflection apps">
+  	<meta name="author" content="Ngige Gitau">
+	
+    <title>MyDiary | Dashboard</title>
+	
+    <link rel="stylesheet" href="static/style.css">
+	<link rel="shortcut icon" href="static/images/favicon.png">
+</head>
+<body>
+	<!-- Navigation bar-->
+    <header>
+        <div class="container">
+            <div id="logo">
+				<h1>My<span class="highlight">Diary</span></h1>
+			</div>
+			<nav>
+			    <ul>
+					<li class="current"><a href="dashboard.html">Dashboard</a></li>
+					<li><a href="profile.html">Profile</a></li>  
+					<li><a href="index.html">Logout</a></li>
+			    </ul>
+			</nav><!--end nav-->
+		</div><!--end branding container-->
+    </header><!--end header-->
+  
+	
+	<!--The jumbotron section -->
+    <section id="dash">
+        <div class="container dark" id = "dash_container" style = "border-radius: 4px">
+			<h2> Welcome <span style="color: #09D647">User</span>,</h2><hr>
+			<div id="avatar"><img src = "static/images/avatar.png" alt = "Image"></img></div>
+			<div id="avatar_stat">
+				<p><b>Status: </b> User</p>
+				<p><b>Entries: </b><span style="color: #09D647">(4)</span></p>	
+				<button class="button_prime"><a href="profile.html">Profile</a></button>
+			</div>
+			
+		</div><!--end container-->
+    </section><!--end jumbotron section-->
+	
+	<!-- Main section -->
+	<section id="main">
+		<div class="container">
+			<article id="main-col">
+				<div class="vertical-menu">
+					<ul>
+						<li><button class="button_nav"><a href="addentry.html">Add Entry</a></button></li>
+						<li><button class="button_nav"><a href="viewentry.html">View Entries</a></button></li>
+						<li><button class="button_nav" id = "updateBtn">Update Entry</button></li>
+						<li><button class="button_nav" id = "deleteBtn">Delete Entry</button></li>
+						<li><button class="button_nav"><a href="notifications.html">Reminders <span style="font-size: 7pt; color:#ffffff">1 new</span></a></button></li>
+					</ul>
+				</div>
+			</article>
+        </div><!--end container-->
+    </section><!--end main section -->
+	<br><br><br>
+	
+	<div id="updateModal" class="modal">
+		<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="close">&times;</span>
+					<h2 style="text-align: center">Update Entry</h2>
+				</div>
+				<div class="modal-body">
+					<div class="container dark">
+						<form action="">
+							<label for="selectEntry">Select Entry</label>
+							<select id="selectEntry" name="selectEntry">
+							    <option>Entry # 1</option>
+							    <option>Entry # 2</option>
+							    <option>Entry # 3</option>
+							    <option>Entry # 4</option>
+							</select>
+							<label for="updateEntry"> Update Entry Title</label>
+							<input type="text" id="updateEntryName" name="updateEntryName" placeholder="Enter new title">
+							<label for="updateEntryContent"> Update Entry Content</label>
+							<textarea id="updateEntryContent" name="updateEntryContent" style="font-family: Arial; color:#a1a4a8">This are my edits
+							</textarea>
+							<input type="submit" value="Update Entry">
+						</form><!--end form-->
+					</div><!--end container-->
+				</div><!--end modal body-->
+				<div class="modal-footer">
+				<br><br>
+				</div><!--end modal body-->
+			</div><!--end modal content-->
+		</div><!--end modal-->
+		
+		<!-- The Delete Modal -->
+		<div id="deleteModal" class="modal">
+		<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="close">&times;</span>
+					<h2 style="text-align: center">Delete Entry</h2>
+				</div>
+				<div class="modal-body">
+					<div class="container dark">
+						<form action="">
+							<label for="selectEntry">Select Entry</label>
+							<select id="selectEntry" name="selectEntry">
+							    <option>Entry #1</option>
+							    <option>Entry #2</option>
+							    <option>Entry #3</option>
+							    <option>Entry #4</option>
+							</select>
+							<input type="submit" value="Delete Entry">
+						</form><!--end form-->
+					</div><!--end container-->
+				</div><!--end modal body-->
+				<div class="modal-footer">
+				<br><br>
+				</div><!--end modal body-->
+			</div><!--end modal content-->
+		</div><!--end modal-->
+	
+	
+
+    <footer>
+      <p>4fr0c0d3 Copyright &copy; 2018</p>
+    </footer>
+	
+	
+	
+	<script>
+		// Get the modals		
+		var modal1 = document.getElementById('updateModal');
+		var modal2 = document.getElementById('deleteModal');
+		// Get the button that opens the modal
+		var btn1 = document.getElementById("updateBtn");
+		var btn2 = document.getElementById("deleteBtnBtn");
+		// Get the <span> element that closes the modal
+		var span1 = document.getElementsByClassName("close")[0];
+		var span2 = document.getElementsByClassName("close")[0];
+		
+		// When the user clicks on the button, open the modal 
+		btn1.onclick = function() {
+			modal1.style.display = "block";
+		}
+		btn2.onclick = function() {
+			modal2.style.display = "block";
+		}
+		
+		// When the user clicks on <span> (x), close the modal
+		span1.onclick = function() {
+			modal1.style.display = "none";
+		}
+		span2.onclick = function() {
+			modal2.style.display = "none";
+		}
+		
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal1.style.display = "none";
+			}
+		}
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal2.style.display = "none";
+			}
+		}
+		
+	</script>
+	
+</body>
+</html>
+
+
+
