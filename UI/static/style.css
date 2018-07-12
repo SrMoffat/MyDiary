@@ -1,5 +1,3 @@
-
-
 /*
 Custom CSS Stylesheet
 Author: Ngige Gitau
@@ -48,6 +46,17 @@ ul{
 	margin-bottom: 3px;
 	width: 15%; 	
 }
+.button_red{
+	height:38px;
+	background:#FD0215;
+	border-radius: 4px;	
+	border:0;
+	padding-left: 20px;
+	padding-right:20px;
+	color:#ffffff;
+	margin-bottom: 3px;
+	
+}
 .dark{
 	padding:15px;
 	background:#000000;
@@ -55,90 +64,39 @@ ul{
 	margin-top:10px;
 	margin-bottom:10px;
 }
-/* ----- Header ----- */
-header{
-	background:#000000;
-	color:#ffffff;	
-	min-height:70px;
-	border-bottom:#09D647 3px solid;
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #000000;
+    color: #09D647;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
 }
-header a{
-	color:#ffffff;
-	text-decoration:none;
-	text-transform: uppercase;
-	font-size:16px;
+/* Add a background color to the button */
+.active, .accordion:hover {
+    background-color: #A8ABAC;
 }
-header li{
-	float:left;
-	display:inline;
-	padding: 0 20px 20px 20px;
-	margin-top:;
+.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
 }
-header #branding{
-    float:left;
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
-header #branding h1{
-    margin:0;
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
-header nav{
-	float:right;
-	margin-top:-50px;
-}
-header .highlight, header .active a{
-	color:#09D647;
-	font-weight:bold;	
-}
-header a:hover{
-	color:#cccccc;
-	font-weight:bold;
-}
-
-
-/* ----- Jumbotrn ----- */
-#jumbotrn {
-	border-radius:7px;
-	padding:15px;
-	color:#ffffff;
-	background:#000000;
-	margin-top: 25px; 
-	margin-left: 400px; 
-	margin-right: 400px;
-}
-#jumbotrn_container h2 {
-	text-align: center; 
-	color:#09D647; 
-}
-#jumbotrn_container p {
-	font-size:8pt;
-	text-align:center;
-}
-#jumbotrn_container a {
-	text-decoration:none;
-	color:#09D647;
-}
-#dash_container {
-	border-radius: 4px;
-}
-#dash_container img {
-	border: 2px solid #ddd; 
-    border-radius: 4px; 
-    padding: 5px; 
-    width: 150px; 
-	float:left;
-	padding-left:0px;
-}
-#avatar{
-	margin-top: 20px;
-}
-#avatar_stat{
-	margin-left: 170px; 
-	margin-top:70px;
-}
-#avatar_stat a{
-	text-decoration: none;
-	color: #ffffff; 	
-}
-
 /* Style input type text (Forms) */
 input[type=text], select, textarea {
     width: 100%; 
@@ -193,6 +151,92 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+
+/* ----- Header ----- */
+header{
+	background:#000000;
+	color:#ffffff;	
+	min-height:70px;
+	border-bottom:#09D647 3px solid;
+}
+header a{
+	color:#ffffff;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-size:16px;
+}
+header li{
+	float:left;
+	display:inline;
+	padding: 0 20px 20px 20px;
+	margin-top:;
+}
+header #branding{
+    float:left;
+}
+header #branding h1{
+    margin:0;
+}
+header nav{
+	float:right;
+	margin-top:-50px;
+}
+header .highlight, header .current a{
+	color:#09D647;
+	font-weight:bold;	
+}
+header a:hover{
+	color:#cccccc;
+	font-weight:bold;
+}
+
+
+/* ----- Jumbotrn ----- */
+#jumbotrn {
+	border-radius:7px;
+	padding:15px;
+	color:#ffffff;
+	background:#000000;
+	margin-top: 25px; 
+	margin-left: 400px; 
+	margin-right: 400px;
+}
+#jumbotrn_container h2 {
+	text-align: center; 
+	color:#09D647; 
+}
+#jumbotrn_container p {
+	font-size:8pt;
+	text-align:center;
+}
+#jumbotrn_container a {
+	text-decoration:none;
+	color:#09D647;
+}
+#dash_container {
+	border-radius: 4px;
+}
+#dash_container img {
+	border: 2px solid #ddd; 
+    border-radius: 4px; 
+    padding: 5px; 
+    width: 150px; 
+	float:left;
+	padding-left:0px;
+}
+#avatar{
+	margin-top: 20px;
+}
+#avatar_stat{
+	margin-left: 170px; 
+	margin-top:70px;
+}
+#avatar_stat a{
+	text-decoration: none;
+	color: #ffffff; 	
+}
+
+
 /* ----- Index_caption ----- */
 #index_caption{
 	min-height:400px;
@@ -228,6 +272,18 @@ input[type=submit]:hover {
 }
 #signup-btn{
 	margin-left:460px;
+}
+#entries_container img {
+	margin-top: 4px;
+    border: 1px solid #ddd; 
+    border-radius: 4px;  
+    padding: 5px; 
+    width: 60%; 
+	height: 200px;
+	text-align: center;
+}
+#entries_container img:hover{	
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
 /* ----- Footer ----- */

@@ -1,0 +1,136 @@
+<!-- MyDiary -->
+<!--viewentry.html-->
+
+<!-- Author: Gitau Ngige -->
+<!-- Updated: July 2018 -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Online journal where users can pen down their thoughts and feelings. ">
+	<meta name="keywords" content="Online journal, web diary, reflection apps">
+  	<meta name="author" content="Ngige Gitau">
+    <title>MyDiary | Entries</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+	<!-- Navigation bar-->
+    <header>
+        <div class="container">
+            <div id="logo">
+				<h1>My<span class="highlight">Diary</span></h1>
+			</div>
+			<nav>
+			    <ul>
+					<li class="current"><a href="viewentry.html">Entries</a></li>
+					<li><a href="dashboard.html">Dashboard</a></li>  
+					<li><a href="index.html">Logout</a></li>
+			    </ul>
+			</nav><!--end nav-->
+		</div><!--end branding container-->
+    </header><!--end header-->
+  
+	
+	<!--The jumbotron section -->
+    <section id="dash">
+        <div class="container dark" id = "dash_container" style = "border-radius: 4px">
+			<h2> User <span style="color: #09D647">Entries</span>,</h2><hr>
+			<div id="avatar"><img src = "static/images/avatar.png" alt = "Image"></img></div>
+			<div id="avatar_stat">
+				<p><b>Status: </b> User</p>
+				<p><b>Entries: </b><span style="color: #09D647">(4)</span></p>	
+				<button class="button_prime"><a href="addentry.html">Add Entry</a></button>
+			</div>
+			
+		</div><!--end container-->
+    </section><!--end jumbotron section-->
+	
+	<!-- Main section -->
+	<section id="main">
+
+		<div class="container" id="entries_container">
+		    <button class="accordion"><b>Entry #1</b></button>
+				<div class="panel">
+					<div><img src = "static/images/trialone.jpg" alt = "Image"></img><div style="float:right"><span style="font-size: 30pt">15</span> Apr 2018<p style="font-size: 8pt; font-weight: bold">10:11 a.m.</p></div></div>
+					<div>
+						<p><b><i>My Day on the Moon</i></b></p>
+						<p style = "font-size: 9pt">So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings. So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings. So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings</p>					
+						<button class="button_prime" id="update">Update</button>
+						<button class="button_red" id="update">Delete</button>
+					</div><br>
+				</div>
+
+			<button class="accordion"><b>Entry #2</b></button>
+				<div class="panel">
+					<div><img src = "static/images/trialone.jpg" alt = "Image"></img><div style="float:right"><span style="font-size: 30pt">15</span> Apr 2018<p style="font-size: 8pt; font-weight: bold">10:11 a.m.</p></div></div>
+					<div>
+						<p><b><i>My Journey on a UFO</i></b></p>
+						<p style = "font-size: 9pt">So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings. So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings. So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings</p>					
+						<button class="button_prime" id="update">Update</button>
+						<button class="button_red" id="update">Delete</button>
+					</div><br>
+				</div>
+
+			<button class="accordion"><b>Entry #3</b></button>
+				<div class="panel">
+					<div><img src = "static/images/trialone.jpg" alt = "Image"></img><div style="float:right"><span style="font-size: 30pt">15</span> Apr 2018<p style="font-size: 8pt; font-weight: bold">10:11 a.m.</p></div></div>
+					<div>
+						<p><b><i>My Mass on Mars</i></b></p>
+						<p style = "font-size: 9pt">So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings. So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings. So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings</p>					
+						<button class="button_prime" id="update">Update</button>
+						<button class="button_red" id="update">Delete</button>
+					</div><br>
+				</div>
+				
+			<button class="accordion"><b>Entry #4</b></button>
+				<div class="panel">
+					<div><img src = "static/images/trialone.jpg" alt = "Image"></img><div style="float:right"><span style="font-size: 30pt">15</span> Apr 2018<p style="font-size: 8pt; font-weight: bold">10:11 a.m.</p></div></div>
+					<div>
+						<p><b><i>The Age of the Sun</i></b></p>
+						<p style = "font-size: 9pt">So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings. So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings. So today was a very interesting day on the because I had 2 chicken drumsticks with plain white rice alongside aliens and extra terrestrial beings</p>					
+						<button class="button_prime" id="update">Update</button>
+						<button class="button_red" id="update">Delete</button>
+					</div><br>
+				</div>
+
+			</div><!--end container-->
+		</div><!--end tabcontent-->
+    </section><!--end main section -->
+	<br><br><br>
+	
+    <footer>
+      <p>4fr0c0d3 Copyright &copy; 2018</p>
+    </footer>
+	
+	
+</body>
+</html>
+			
+			
+	
+		
+	
+	
+	
+
+   	<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+	</script>
+	
+	
+  </body>
+</html>
