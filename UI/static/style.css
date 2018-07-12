@@ -46,6 +46,7 @@ ul{
 	padding-right:20px;
 	color:#09D647;
 	margin-bottom: 3px;
+	width: 15%; 	
 }
 .dark{
 	padding:15px;
@@ -54,107 +55,6 @@ ul{
 	margin-top:10px;
 	margin-bottom:10px;
 }
-
-/* ----- Jumbotrn ----- */
-#jumbotrn {
-	border-radius:7px;
-	padding:15px;
-	color:#ffffff;
-	background:#000000;
-	margin-top: 25px; 
-	margin-left: 400px; 
-	margin-right: 400px;
-}
-#jumbotrn_container h2 {
-	text-align: center; 
-	color:#09D647; 
-}
-#jumbotrn_container p {
-	font-size:8pt;
-	text-align:center;
-}
-#jumbotrn_container a {
-	text-decoration:none;
-	color:#09D647;
-}
-#dash_container {
-	border-radius: 4px;
-}
-#dash_container img {
-	border: 1px solid #ddd; 
-    border-radius: 4px; 
-    padding: 5px; 
-    width: 150px; 
-	float:left;
-	padding-left:0px;
-}
-#stats{
-	float:right;
-}
-#avatar{
-	margin-top: 20px;
-}
-
-
-
-
-
-/* Style input type text (Forms) */
-input[type=text], select, textarea {
-    width: 100%; 
-    padding: 12px;  
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    box-sizing: border-box; 
-    margin-top: 4px; 
-    margin-bottom: 14px; 
-    resize: vertical
-}
-
-/* Style input type email (Forms) */
-input[type=email], select, textarea {
-    width: 100%; 
-    padding: 12px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    box-sizing: border-box; 
-    margin-top: 4px; 
-    margin-bottom: 14px; 
-    resize: vertical 
-}
-
-/* Style input type password (Forms) */
-input[type=password], select, textarea {
-    width: 100%; 
-    padding: 12px; 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    box-sizing: border-box; 
-    margin-top: 4px; 
-    margin-bottom: 14px; 
-    resize: vertical 
-}
-
-/* Style the submit button with a specific background color etc */
-input[type=submit] {
-    background-color: #109D3B;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-
-
-
-
-
 /* ----- Header ----- */
 header{
 	background:#000000;
@@ -193,6 +93,106 @@ header a:hover{
 	font-weight:bold;
 }
 
+
+/* ----- Jumbotrn ----- */
+#jumbotrn {
+	border-radius:7px;
+	padding:15px;
+	color:#ffffff;
+	background:#000000;
+	margin-top: 25px; 
+	margin-left: 400px; 
+	margin-right: 400px;
+}
+#jumbotrn_container h2 {
+	text-align: center; 
+	color:#09D647; 
+}
+#jumbotrn_container p {
+	font-size:8pt;
+	text-align:center;
+}
+#jumbotrn_container a {
+	text-decoration:none;
+	color:#09D647;
+}
+#dash_container {
+	border-radius: 4px;
+}
+#dash_container img {
+	border: 2px solid #ddd; 
+    border-radius: 4px; 
+    padding: 5px; 
+    width: 150px; 
+	float:left;
+	padding-left:0px;
+}
+#avatar{
+	margin-top: 20px;
+}
+#avatar_stat{
+	margin-left: 170px; 
+	margin-top:70px;
+}
+#avatar_stat a{
+	text-decoration: none;
+	color: #ffffff; 	
+}
+
+/* Style input type text (Forms) */
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px;  
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical
+}
+/* Style input type email (Forms) */
+input[type=email], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical 
+}
+/* Style input type password (Forms) */
+input[type=password], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical 
+}
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #109D3B;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Style the datetime-local input type */
+input[type=datetime-local]{
+	border-radius: 3px;
+	background-color:#000000;
+	height:30px;
+	color:#09D647;
+}
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
 /* ----- Index_caption ----- */
 #index_caption{
 	min-height:400px;
@@ -214,7 +214,21 @@ header a:hover{
 	text-decoration:none;	
 	color:#ffffff;
 }
-
+#main-col a {
+	text-decoration: none;
+	color: #09D647;
+}
+#editor_container{
+	border-radius:3px;
+	width:75%;
+}
+#add_entry_btn{
+	float:right; 
+	margin-bottom: 5px;
+}
+#signup-btn{
+	margin-left:460px;
+}
 
 /* ----- Footer ----- */
 footer{

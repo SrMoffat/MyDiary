@@ -1,5 +1,5 @@
 <!-- MyDiary -->
-<!--dashboard.html-->
+<!--profile.html-->
 
 <!-- Author: Gitau Ngige -->
 <!-- Updated: July 2018 -->
@@ -12,7 +12,7 @@
     <meta name="description" content="Online journal where users can pen down their thoughts and feelings. ">
 	<meta name="keywords" content="Online journal, web diary, reflection apps">
   	<meta name="author" content="Ngige Gitau">
-    <title>MyDiary | Dashboard</title>
+    <title>MyDiary | Profile</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
@@ -24,8 +24,8 @@
 			</div>
 			<nav>
 			    <ul>
-					<li class="active"><a href="dashboard.html">Dashboard</a></li>
-					<li><a href="profile.html">Profile</a></li>  
+					<li class="active"><a href="profile.html">Profile</a></li>
+					<li><a href="dashboard.html">Dashboard</a></li>  
 					<li><a href="index.html">Logout</a></li>
 			    </ul>
 			</nav><!--end nav-->
@@ -36,12 +36,12 @@
 	<!--The jumbotron section -->
     <section id="dash">
         <div class="container dark" id = "dash_container" style = "border-radius: 4px">
-			<h2> Welcome <span style="color: #09D647">User</span>,</h2><hr>
+			<h2> User <span style="color: #09D647">Profile</span>,</h2><hr>
 			<div id="avatar"><img src = "static/images/avatar.png" alt = "Image"></img></div>
 			<div id="avatar_stat">
 				<p><b>Status: </b> User</p>
 				<p><b>Entries: </b><span style="color: #09D647">(4)</span></p>	
-				<button class="button_prime"><a href="profile.html">Profile</a></button>
+				<button class="button_prime"><a href="addentry.html">Add Entry</a></button>
 			</div>
 			
 		</div><!--end container-->
@@ -49,17 +49,13 @@
 	
 	<!-- Main section -->
 	<section id="main">
-		<div class="container">
-			<article id="main-col">
-				<div class="vertical-menu">
-					<ul>
-						<li><button class="button_nav"><a href="addentry.html">Add Entry</a></button></li>
-						<li><button class="button_nav">Update Entry</button></li>
-						<li><button class="button_nav">Delete Entry</button></li>
-					</ul>
-				</div>
-			</article>
-        </div><!--end container-->
+		<div class = "container">
+			<label for = "set reminder"><b>Set Reminder</b></label><br>
+			<input type = "datetime-local"></input>
+			<input style = "background-color:#000000;" type="submit" value="Set Reminder">
+		
+		</div>
+		
     </section><!--end main section -->
 	<br><br><br>
     <footer>

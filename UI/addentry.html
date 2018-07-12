@@ -1,5 +1,5 @@
 <!-- MyDiary -->
-<!--dashboard.html-->
+<!--addentry.html-->
 
 <!-- Author: Gitau Ngige -->
 <!-- Updated: July 2018 -->
@@ -12,9 +12,15 @@
     <meta name="description" content="Online journal where users can pen down their thoughts and feelings. ">
 	<meta name="keywords" content="Online journal, web diary, reflection apps">
   	<meta name="author" content="Ngige Gitau">
-    <title>MyDiary | Dashboard</title>
-    <link rel="stylesheet" href="static/style.css">
+	
+    <title>MyDiary | Add Entry</title>
+	
+    <link rel="stylesheet" href="static/style.css">	
+	
+	<script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+	
 </head>
+
 <body>
 	<!-- Navigation bar-->
     <header>
@@ -36,12 +42,12 @@
 	<!--The jumbotron section -->
     <section id="dash">
         <div class="container dark" id = "dash_container" style = "border-radius: 4px">
-			<h2> Welcome <span style="color: #09D647">User</span>,</h2><hr>
+			<h2> Add <span style="color: #09D647">Entry</span>,</h2><hr>
 			<div id="avatar"><img src = "static/images/avatar.png" alt = "Image"></img></div>
 			<div id="avatar_stat">
 				<p><b>Status: </b> User</p>
 				<p><b>Entries: </b><span style="color: #09D647">(4)</span></p>	
-				<button class="button_prime"><a href="profile.html">Profile</a></button>
+				<button class="button_prime"><a href="dashboard.html">Dashboard</a></button>
 			</div>
 			
 		</div><!--end container-->
@@ -49,22 +55,26 @@
 	
 	<!-- Main section -->
 	<section id="main">
-		<div class="container">
-			<article id="main-col">
-				<div class="vertical-menu">
-					<ul>
-						<li><button class="button_nav"><a href="addentry.html">Add Entry</a></button></li>
-						<li><button class="button_nav">Update Entry</button></li>
-						<li><button class="button_nav">Delete Entry</button></li>
-					</ul>
-				</div>
-			</article>
+		<div class="container dark" id="editor_container">
+			
+			<input id="add_entry_btn" type="submit" value="Add Entry">
+			
+			<label for="title"> Title</label>
+			<input type="text" id="title" name="title" placeholder="Enter title">
+			
+			<label for="content"> Content</label>	
+			<textarea name="editor"></textarea>
+			<script>
+				CKEDITOR.replace( 'editor' );
+			</script>			
         </div><!--end container-->
     </section><!--end main section -->
 	<br><br><br>
+	
     <footer>
       <p>4fr0c0d3 Copyright &copy; 2018</p>
     </footer>
+	
 	
 	
 </body>
@@ -75,10 +85,6 @@
 	
    
 	
-	
-	
-</body>
-</html>
 
 
 
