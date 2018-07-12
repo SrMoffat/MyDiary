@@ -356,6 +356,7 @@ header a:hover{
     box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
+
 /* ----- Footer ----- */
 footer{
   padding:20px;
@@ -365,4 +366,60 @@ footer{
   text-align: center;
   border-top:#09D647 3px solid;
 }
+
+/* Media Queries */
+@media(max-width: 768px){
+	header #logo,
+	header nav,
+	header nav li
+	{
+	float:none;
+	text-align:center;
+	width: 100%;	
+  }
+  header nav ul{
+	  margin-top: 60px
+  }
+  
+  #dash_container h2 {
+	  text-align:center;
+  }
+  #avatar_stat {
+	  float: right;
+	  margin-top:-20px;
+  }
+ #avatar_stat2 {
+	  float: right;
+	  margin-top:-20px;
+  }
+ 
+#avatar_stat button {
+	  margin-top:55px;
+	  margin-left:25px;
+  }
+ #avatar_stat2 button {
+	  margin-top:55px;
+	  margin-left:25px;
+  }
+   #avatar_stat2 a {
+	  text-decoration:none;
+	  color:#ffffff;
+  }
+  .button_nav{
+	  width:70%;
+	  margin-left:75px;
+  }
+#signup-btn{
+	margin-left:80px;
+	width:70%;
+}
+#jumbotrn{
+	width:70%;
+	margin-left:70px;
+}
+#jumbotrn form input[type="submit"]{
+	width:70%;
+	margin-left:60px;
+}
+
 
