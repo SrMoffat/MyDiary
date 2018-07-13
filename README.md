@@ -1,6 +1,10 @@
 # MyDiary
 MyDiary is an online journal where users can pen down their thoughts and feelings.
 
+## Github Pages
+The UI templates can be tested on [github pages](https://srmoffat.github.io/MyDiary/UI/index.html)
+
+
 ## UI Templates
 
 **SignUp**
@@ -13,6 +17,4 @@ MyDiary is an online journal where users can pen down their thoughts and feeling
 ![viewentries](https://user-images.githubusercontent.com/31407254/42646861-d0234aec-860a-11e8-9704-52237ef3f3a6.PNG)
 
 
-## Github Pages
-The UI templates can be tested on [github pages](https://srmoffat.github.io/MyDiary/UI/index.html)
 
