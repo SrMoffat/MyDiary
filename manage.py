@@ -17,12 +17,9 @@ def run():
 
 @manager.command
 def test(): 
-    tests = unittest.TestLoader().discover('app/test', pattern='test*.py')
+    tests = unittest.TestLoader().discover('app/tests', pattern='test*.py')
     result = unittest.TextTestRunner(verbosity=2).run(tests)
 
-    if result.wasSuccesful(): 
-        return 0
-    return 1
 
 if __name__ == '__main__': 
     manager.run()
