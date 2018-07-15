@@ -21,6 +21,6 @@ def add_entry(data):
         'status': 'Created!',
         'id' : new_entry.id,
         'title' : new_entry.title,
-        'content': new_entry.content        
+        'content': new_entry.content     
     } , 201    
 
