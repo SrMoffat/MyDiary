@@ -8,6 +8,9 @@ class Entry(object):
     __ID = 1
 
     def __init__(self, title, content): 
+        """
+        Entry constructor method 
+        """
         self.id = Entry.__ID
         self.title = title
         self.content = content
@@ -16,6 +19,9 @@ class Entry(object):
         Entry.__ID += 1
 
     def display_entry_holder(self): 
+        """
+        : return entry
+        """
         return {
             'id' :  self.id,
             'title' :  self.title,
@@ -31,7 +37,7 @@ class MockDB(object):
     entries = []
 
     @classmethod
-    def get_entry(cls, id): 
+    def get_entry_by_id(cls, id): 
         for entry in cls.entries: 
             if entry.id == id: 
                 return entry

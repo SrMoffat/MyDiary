@@ -21,6 +21,9 @@ def add_entry(data):
         'status': 'Created!',
         'id' : new_entry.id,
         'title' : new_entry.title,
-        'content': new_entry.content     
-    } , 201    
+        'content': new_entry.content,
+        'posted on' : str(datetime.datetime.utcnow())
+    } , 201  
+
+  
 
