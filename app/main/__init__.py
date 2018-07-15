@@ -9,3 +9,4 @@ def create_app(config_name):
     app.config.from_object(app_configs[config_name])
 
     return app
+    
