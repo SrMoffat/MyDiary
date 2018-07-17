@@ -27,4 +27,12 @@ def get_all_entries():
     FETCH all entries
     """
     entries = [entry for entry in MockDB.entries]
-    return entries,200
+    return entries, 200
+
+def get_one_entry(entry_id):
+    """
+    FETCH an entry
+    """
+    entry = MockDB.get_entry_by_id(entry_id)
+    
+    return entry, 200
