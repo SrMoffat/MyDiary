@@ -1,22 +1,22 @@
 #entries.py
 import uuid
 from datetime import datetime
-from flask import current_app, url_for
-
 
 class Entry(object): 
-    __ID = 1
-
+    """
+    Entry Class (Model)
+    """
+    
     def __init__(self, title, content): 
         """
         Entry constructor method 
         """
-        self.id = Entry.__ID
+        self.id = str(uuid.uuid4())
         self.title = title
         self.content = content
         self.date_created = datetime.utcnow()
 
-        Entry.__ID += 1
+        
 
     def display_entry_holder(self): 
         """
@@ -26,12 +26,10 @@ class Entry(object):
             'id' :  self.id,
             'title' :  self.title,
             'content' : self.content,
-            'posted on' : self.date_created
+            'posted on' : str(self.date_created)
         }
 
-mock_db = {
-    'entries': [] # Entries table
-}
+
 
 class MockDB(object): 
     entries = []
@@ -45,5 +43,10 @@ class MockDB(object):
                 return {
                     'error': 'no entry found'
                 }
+
+    @classmethod
+    def get_all_entries(cls):
+        return [entry for entry in cls.entries]
+
                 
         

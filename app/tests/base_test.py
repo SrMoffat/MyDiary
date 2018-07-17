@@ -2,7 +2,7 @@
 from flask_testing import TestCase
 
 from manage import app
-from app.main.model.entries import mock_db, MockDB
+from app.main.model.entries import MockDB
 
 
 

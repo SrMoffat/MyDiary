@@ -1,9 +1,8 @@
 # entry_service.py
-import uuid
-import datetime 
+import datetime  
 
 from flask import request 
-from app.main.model.entries import Entry, mock_db, MockDB
+from app.main.model.entries import Entry, MockDB
 
 
 def add_entry(data):
@@ -13,17 +12,35 @@ def add_entry(data):
     title = data['title']
     content = data['content']
 
-    new_entry = Entry(title=title,
-                        content=content)
+    # Reject null values
+    if not title or not content:
+        return {
+            'error' : 'All fields required!'
+        }, 400
 
-    MockDB.entries.append(new_entry) 
-    return {
-        'status': 'Created!',
-        'id' : new_entry.id,
-        'title' : new_entry.title,
-        'content': new_entry.content,
-        'posted on' : str(datetime.datetime.utcnow())
-    } , 201  
+    # Reject empty string
+    elif len(title.split()) == 0 or len(content.split()) == 0:
+        return {
+            'error':'Invalid input'
+        }, 400
+
+    existing_entries = MockDB.get_all_entries()
+    entry_candidate = [entry.display_entry_holder() for entry in existing_entries if entry.display_entry_holder()['title']==title]    
+
+    # Ensure titles are unique
+    if entry_candidate:
+        return {
+            'error': 'Entry already exists!'
+        }, 409
+    
+    # Once checks pass, create entry object
+    new_entry = Entry(title=title,
+                      content=content)
+
+    # Add it to DB
+    MockDB.entries.append(new_entry)    
+
+    return new_entry.display_entry_holder(), 201  
 
   
 

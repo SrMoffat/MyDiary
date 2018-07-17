@@ -1,8 +1,5 @@
 #manage.py 
-import os 
 import unittest
-
-from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
 from app import blueprint
@@ -21,7 +18,7 @@ def run():
 @manager.command
 def test(): 
     tests = unittest.TestLoader().discover('app/tests', pattern='test*.py')
-    result = unittest.TextTestRunner(verbosity=2).run(tests)
+    result = unittest.TextTestRunner(verbosity=2).run(tests)   
 
 
 if __name__ == '__main__': 
