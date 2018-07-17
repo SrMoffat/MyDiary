@@ -23,11 +23,11 @@ class Entry(object):
         : return entry
         """
         return {
-            'id' :  self.id,
+            'message' :  'Entry Added!',
             'title' :  self.title,
             'content' : self.content,
-            'posted on' : self.date_created
-        }
+            'posted on' : str(self.date_created)
+            }
 
 mock_db = {
     'entries': [] # Entries table
