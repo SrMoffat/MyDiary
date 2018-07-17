@@ -59,5 +59,13 @@ def get_all_entries():
         }, 404
     return entries, 200
 
+def get_one_entry(entry_id):
+    """
+    FETCH one entry
+    """
+    entry = MockDB.get_entry_by_id(entry_id)   
+
+    return entry, 200
+
   
 

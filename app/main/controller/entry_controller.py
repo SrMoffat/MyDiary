@@ -3,7 +3,7 @@ from flask import request
 from flask_restplus import Resource
 
 from ..utils.dto import EntryDto
-from ..service.entry_service import add_entry, get_all_entries
+from ..service.entry_service import add_entry, get_all_entries, get_one_entry
 
 api = EntryDto.api
 entry = EntryDto.entry
@@ -29,4 +29,19 @@ class Entries(Resource):
         FETCH entries
         """
         return get_all_entries()
+
+@api.route('/entries/<entry_id>')
+@api.param('entry_id' , 'The identifier for the entry')
+@api.response(404, 'Entry not found!')
+class Entry(Resource):
+    """
+    The Single Entry Resource for the API
+    """
+    @api.marshal_with(entry, envelope='entry')
+    @api.response(200, 'Successfully fetched an entry!')
+    def get(self, entry_id):
+        """
+        FETCH an entry
+        """
+        return get_one_entry(entry_id)
            
