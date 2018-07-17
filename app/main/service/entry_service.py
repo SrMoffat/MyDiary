@@ -36,3 +36,18 @@ def get_one_entry(entry_id):
     entry = MockDB.get_entry_by_id(entry_id)
     
     return entry, 200
+
+def modify_entry(entry_id, data):
+    entry = MockDB.get_entry_by_id(entry_id)
+    entry_data = entry.display_entry_holder()
+
+    entry_data['title'] = data['title']
+    entry_data['content'] = data['content']
+
+    return entry_data, 200
+
+    
+
+    
+
+
