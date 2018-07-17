@@ -55,6 +55,18 @@ class TestEntries(BaseTestCase):
                                        content_type='application/json')
         self.assertEqual(response.status_code, 409)  
 
+    # 1e. POST api/v1/entries
+    def test_input_is_string(self):
+        """
+        Test POST api/v1/entries
+        """
+        response = self.client().post('api/v1/entries',
+                                       data=json.dumps({'title':1, 'content': 1.0 }),
+                                       content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        
+
+
     # 2. GET api/v1/entries
     def test_get_entries(self):
         """
@@ -74,7 +86,7 @@ class TestEntries(BaseTestCase):
         self.assertEqual(response.status_code, 200)
 
 
-    4. PUT api/v1/entries/<int:entry_id>
+    # 4. PUT api/v1/entries/<int:entry_id>
     def test_modify_entry(self, id=1):
         """
         Test PUT api/v1/entries/<int:entry_id>

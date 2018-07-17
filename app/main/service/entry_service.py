@@ -12,6 +12,12 @@ def add_entry(data):
     title = data['title']
     content = data['content']
 
+    # Accept only string
+    if isinstance(title, (int, float, complex)) or isinstance(content, (int, float, complex)):
+        return {
+            'error':'Invalid input'
+        }, 400
+
     # Reject null values
     if not title or not content:
         return {
