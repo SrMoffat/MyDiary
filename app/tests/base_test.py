@@ -31,6 +31,7 @@ class BaseTestCase(TestCase):
             'id' : 1,
             'title': 'My Day on the Moon',
             'content': 'So today was a very interesting day on the because I had 2 chicken drumsticks on the moon',
+            'date created': '2018-07-17 19:22:52.708648'
         }
 
         MockDB.entries.append(self.entry)

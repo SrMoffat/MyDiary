@@ -31,14 +31,11 @@ def add_entry(data):
         }, 400
 
     existing_entries = MockDB.get_all_entries()
-    entry_candidate = [entry.display_entry_holder() for entry in existing_entries if entry.display_entry_holder()['title']==title]    
-
-    # Ensure titles are unique
-    if entry_candidate:
+    if [entry for entry in existing_entries if entry['title']==title]:
         return {
-            'error': 'Entry already exists!'
+            'error' : 'Entry already exists!'
         }, 409
-    
+        
     # Once checks pass, create entry object
     new_entry = Entry(title=title,
                       content=content)
@@ -46,7 +43,21 @@ def add_entry(data):
     # Add it to DB
     MockDB.entries.append(new_entry)    
 
-    return new_entry.display_entry_holder(), 201  
+    return {
+        'message' : 'Entry added',
+        'entry' : new_entry.display_entry_holder()
+    }, 201
+
+def get_all_entries():
+    """
+    FETCH all entries
+    """
+    entries = [entry for entry in MockDB.entries]
+    if not entries:
+        return {
+            'message' : 'No entries available!'
+        }, 404
+    return entries, 200
 
   
 

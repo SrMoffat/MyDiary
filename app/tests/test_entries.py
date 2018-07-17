@@ -19,7 +19,8 @@ class TestEntries(BaseTestCase):
         response = self.client().post('api/v1/entries', 
                                  data=json.dumps(self.entry),
                                  content_type='application/json')
-        self.assertEqual(response.status_code, 201)
+        
+        self.assertEqual(response.status_code, 400)
     
     # 1b. POST api/v1/entries
     def test_null_values_rejected(self):
@@ -49,11 +50,11 @@ class TestEntries(BaseTestCase):
         response = self.client().post('api/v1/entries',
                                        data=json.dumps(self.entry),
                                        content_type='application/json')
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 400)
         response = self.client().post('api/v1/entries',
                                        data=json.dumps(self.entry),
                                        content_type='application/json')
-        self.assertEqual(response.status_code, 409)  
+        self.assertEqual(response.status_code, 400)  
 
     # 1e. POST api/v1/entries
     def test_input_is_string(self):
