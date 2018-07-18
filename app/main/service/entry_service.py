@@ -52,6 +52,7 @@ def get_all_entries():
     """
     FETCH all entries
     """
+    # Get a list of all entry objects
     entries = [entry for entry in MockDB.entries]
     if not entries:
         return {
