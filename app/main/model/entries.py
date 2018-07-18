@@ -41,8 +41,7 @@ class MockDB(object):
                 return entry
             
     @classmethod
-    def get_all_entries(cls):
-       
+    def get_all_entries(cls):       
         return [entry.display_entry_holder() for entry in cls.entries]
 
                 

@@ -63,9 +63,48 @@ def get_one_entry(entry_id):
     """
     FETCH one entry
     """
-    entry = MockDB.get_entry_by_id(entry_id)   
+    entry = MockDB.get_entry_by_id(entry_id) 
+    if not entry:
+        return {
+            'message' : 'No entry found!'       
+        }, 404
 
     return entry, 200
+
+def modify_entry(entry_id, data):
+    """
+    MODIFY an entry
+    """
+    # Get the entry
+    entry = MockDB.get_entry_by_id(entry_id)
+
+    # If entry inexistent send message
+    if not entry:
+        return {
+            'error' : 'Entry not found'
+        }, 404
+
+    # Get the update payload
+    title = data['title']
+    content = data['content']
+
+    # Remove existing object
+    MockDB.entries.remove(entry)
+
+    # Check if title and content in payload then update 
+    if title:
+        entry.title = data['title']
+    if content:
+        entry.content = data['content']
+    entry.date_created = datetime.datetime.utcnow()
+
+    # Add modified entry    
+    MockDB.entries.append(entry) 
+
+    return {
+        'message': 'Successfully updated!',
+        'entry' : entry.display_entry_holder()
+        }, 200
 
   
 
