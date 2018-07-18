@@ -107,5 +107,26 @@ def modify_entry(entry_id, data):
         'entry' : entry.display_entry_holder()
         }, 200
 
+def remove_entry(entry_id):
+    """
+    REMOVE an entry
+    """
+    # Get the entry
+    entry = MockDB.get_entry_by_id(entry_id)
+
+    # If entry inexistent send message
+    if not entry:
+        return {
+            'error' : 'Entry not found'
+        }, 404
+   
+    MockDB.entries.remove(entry)
+
+    return {
+        'message': 'Successfully deleted!!'
+        
+        }, 200
+
+
   
 
