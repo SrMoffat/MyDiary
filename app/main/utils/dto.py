@@ -11,3 +11,4 @@ class EntryDto(object):
         'title': fields.String(required=True, description='The title for the journal entry'),
         'content': fields.String(required=True, description='The content for the journal entry')
     })
+    
