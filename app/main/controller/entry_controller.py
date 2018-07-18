@@ -3,7 +3,8 @@ from flask import request
 from flask_restplus import Resource
 
 from ..utils.dto import EntryDto
-from ..service.entry_service import add_entry, get_all_entries, get_one_entry, modify_entry
+
+from ..service.entry_service import add_entry, get_all_entries, get_one_entry, modify_entry, remove_entry
 
 api = EntryDto.api
 entry = EntryDto.entry
@@ -22,7 +23,8 @@ class Entries(Resource):
         data = request.json
         return add_entry(data=data)
 
-    @api.marshal_with(entry, envelope='data')
+
+    @api.marshal_with(entry, envelope='entries')
     @api.response(200, 'Successfully fetched entries!')
     def get(self):
         """
@@ -30,7 +32,8 @@ class Entries(Resource):
         """
         return get_all_entries()
 
-@api.route('/entries/<int:entry_id>')
+
+@api.route('/entries/<entry_id>')
 @api.param('entry_id' , 'The identifier for the entry')
 @api.response(404, 'Entry not found!')
 class Entry(Resource):
@@ -51,3 +54,11 @@ class Entry(Resource):
         """
         data = request.json
         return modify_entry(entry_id, data)
+
+
+    def delete(self, entry_id):
+        """
+        REMOVE an entry
+        """
+        return remove_entry(entry_id)
+           

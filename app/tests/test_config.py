@@ -1,6 +1,4 @@
 #test_config.py
-
-import os 
 import unittest
 
 from flask import current_app
