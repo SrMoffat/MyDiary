@@ -128,13 +128,7 @@ def remove_entry(entry_id):
         
         }, 200
 
-    new_entry = Entry(title=title,
-                        content=content)
     
-    MockDB.entries.append(new_entry) 
-    
-    return new_entry.display_entry_holder(), 201  
-
 
     
 

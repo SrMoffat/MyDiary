@@ -23,13 +23,11 @@ class Entry(object):
         : return entry
         """
         return {
-            'message' :  'Entry Added!',
+            'id' :  self.id,
             'title' :  self.title,
             'content' : self.content,
             'posted on' : str(self.date_created)
-
-
-
+            }
 
 class MockDB(object): 
     entries = []
@@ -37,6 +35,7 @@ class MockDB(object):
     @classmethod
     def get_entry_by_id(cls, id): 
         for entry in cls.entries: 
+            
             if entry.display_entry_holder()['id'] == id:                     
                 return entry
             
