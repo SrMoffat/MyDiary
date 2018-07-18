@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/SrMoffat/MyDiary.svg?branch=non-persistent-endpoints)](https://travis-ci.org/SrMoffat/MyDiary)
 # MyDiary
 MyDiary is an online journal where users can pen down their thoughts and feelings.
 
