@@ -7,9 +7,13 @@ install:
 
 # command to run tests
 script:
-  - pytest 
+  - pytest --cov
+
 branches:
   only:
   - non-persistent-endpoints
   - develop
   - master
+
+after_success:
+  - coveralls
