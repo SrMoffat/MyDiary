@@ -22,7 +22,7 @@ class Entries(Resource):
         data = request.json
         return add_entry(data=data)
 
-    @api.marshal_with(entry, envelope='data')
+    @api.marshal_with(entry, envelope='entries')
     @api.response(200, 'Successfully fetched entries!')
     def get(self):
         """
