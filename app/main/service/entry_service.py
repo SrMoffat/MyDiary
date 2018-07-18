@@ -15,7 +15,7 @@ def add_entry(data):
     # Accept only string
     if isinstance(title, (int, float, complex)) or isinstance(content, (int, float, complex)):
         return {
-            'error':'Invalid input'
+            'error':'Invalid Input!'
         }, 400
 
     # Reject null values
@@ -44,7 +44,7 @@ def add_entry(data):
     MockDB.entries.append(new_entry)    
 
     return {
-        'message' : 'Entry added',
+        'message' : 'Entry Added!',
         'entry' : new_entry.display_entry_holder()
     }, 201
 
