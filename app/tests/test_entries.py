@@ -1,5 +1,4 @@
 # test_entries.py
-import unittest
 import json
 import datetime 
 
