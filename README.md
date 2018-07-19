@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/SrMoffat/MyDiary.svg?branch=non-persistent-endpoints)](https://travis-ci.org/SrMoffat/MyDiary)
 [![Coverage Status](https://coveralls.io/repos/github/SrMoffat/MyDiary/badge.svg?branch=non-persistent-endpoints)](https://coveralls.io/github/SrMoffat/MyDiary?branch=non-persistent-endpoints)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f981ab50b5790bf90bab/maintainability)](https://codeclimate.com/github/SrMoffat/MyDiary/maintainability)
 # MyDiary
 MyDiary is an online journal where users can pen down their thoughts and feelings.
 
