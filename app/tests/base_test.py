@@ -1,4 +1,5 @@
 #base_test.py
+import uuid
 from flask_testing import TestCase
 
 from manage import app
@@ -10,6 +11,7 @@ class BaseTestCase(TestCase):
     """
     The Base Test Case 
     """ 
+    @classmethod
     def create_app(self): 
         """
         The method that creates an instance of the app
