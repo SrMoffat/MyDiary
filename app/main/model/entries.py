@@ -5,8 +5,7 @@ from datetime import datetime
 class Entry(object): 
     """
     Entry Class (Model)
-    """
-    
+    """    
     def __init__(self, title, content): 
         """
         Entry constructor method 
@@ -14,9 +13,7 @@ class Entry(object):
         self.id = str(uuid.uuid4())
         self.title = title
         self.content = content
-        self.date_created = datetime.utcnow()
-
-        
+        self.date_created = datetime.utcnow()        
 
     def display_entry_holder(self): 
         """
@@ -31,17 +28,13 @@ class Entry(object):
 
 class MockDB(object): 
     entries = []
-
     @classmethod
     def get_entry_by_id(cls, id): 
-        for entry in cls.entries: 
-            
+        for entry in cls.entries:             
             if entry.display_entry_holder()['id'] == id:                     
-                return entry
-            
+                return entry            
     @classmethod
     def get_all_entries(cls):       
         return [entry.display_entry_holder() for entry in cls.entries]
-
                 
         
