@@ -5,7 +5,6 @@ from flask import current_app
 from flask_testing import TestCase
 
 from manage import app 
-from app.main.config import basedir
 
 class TestDevelopmentConfig(TestCase): 
     """
@@ -26,7 +25,7 @@ class TestDevelopmentConfig(TestCase):
         self.assertFalse(app.config['SECRET_KEY'] is '4frocod3')
         self.assertTrue(app.config['DEBUG'] is True)
         self.assertFalse(current_app is None)
-
+        
 class TestTestingConfig(TestCase): 
     """
     Test Test Config
