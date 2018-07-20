@@ -28,13 +28,22 @@ class Entry(object):
 
 class MockDB(object): 
     entries = []
+    users = []
     @classmethod
     def get_entry_by_id(cls, id): 
         for entry in cls.entries:             
             if entry.display_entry_holder()['id'] == id:                     
-                return entry            
+                return entry   
+    @classmethod
+    def get_user_by_id(cls, id): 
+        for user in cls.users:             
+            if user.display_user_holder()['id'] == id:                     
+                return user          
     @classmethod
     def get_all_entries(cls):       
         return [entry.display_entry_holder() for entry in cls.entries]
+    @classmethod
+    def get_all_users(cls):       
+        return [user.display_user_holder() for user in cls.users]
                 
         

@@ -1,6 +1,5 @@
 # test_entries.py
 import json
-import datetime 
 
 from .base_test import BaseTestCase
 from app.main.model.entries import Entry
