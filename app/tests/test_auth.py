@@ -43,7 +43,7 @@ class TestUser(BaseTestCase):
         Test POST api/v1/auth/signup
         """
         with self.client(): 
-            import pdb;pdb.set_trace()           
+                       
             response = self.post_user()  
             self.assertEqual(response.status_code, 201)      
             result = json.loads(response.data)        
