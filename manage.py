@@ -4,7 +4,7 @@ from flask_script import Manager
 from app import blueprint
 from app.main import create_app
 
-app = create_app('test')
+app = create_app('prod')
 app.register_blueprint(blueprint)
 manager = Manager(app)
 
