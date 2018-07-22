@@ -1,8 +1,8 @@
 /*
 Custom CSS Stylesheet
 Author: Ngige Gitau
-For: Book-A-Meal Web Application
-Updated: 18th April 2018
+For: MyDiary Web Application
+Updated: 23rd July 2018
 */
 
 body{
@@ -359,12 +359,15 @@ header a:hover{
 
 /* ----- Footer ----- */
 footer{
-  padding:20px;
-  margin-top:20px;
+  position:fixed ;
+  bottom: 0;
+  padding:0%;
+ 
   color:#09D647;
   background-color:#000000;
   text-align: center;
   border-top:#09D647 3px solid;
+  width: 100%;
 }
 
 /* Media Queries */
