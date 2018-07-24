@@ -1,0 +1,19 @@
+language: python
+python:
+  - "3.6.5"
+# command to install dependencies
+install:
+  - "pip install -r requirements.txt"
+
+# command to run tests
+script:
+  - pytest --cov
+
+branches:
+  only:
+  - non-persistent-endpoints
+  - develop
+  - master
+
+after_success:
+  - coveralls
