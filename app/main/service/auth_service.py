@@ -28,7 +28,7 @@ def add_user(data):
         if new_user_candidate:
             return {
                 "status":"success!",
-                "message":"User registered!"
+                "message":"User registered!",
             }, 201
     return {
         "status":"failed!",
