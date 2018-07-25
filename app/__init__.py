@@ -2,7 +2,7 @@
 from flask_restplus import Api
 from flask import Blueprint
 
-from .main.controller.entry_controller import api as entry_ns
+from .main.controller.auth_controller import auth as auth_ns
 
 blueprint = Blueprint('api', __name__)
 
@@ -11,4 +11,4 @@ api = Api(blueprint,
           title='MyDiary RESTful API',
           description='A RESTful API built on Flask')
 
-api.add_namespace(entry_ns, path='/api/v1')
+api.add_namespace(auth_ns, path='/api/v2/auth')
