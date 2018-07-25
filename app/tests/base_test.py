@@ -21,9 +21,17 @@ class BaseTestCase(TestCase):
         """
         Common variables for tests
         """
+        self.app = app
+        self.client = self.app.test_client()
+        self.app.testing = True
         self.user = User(
             id=1,
             username="4fr0c0d3",
             email="4fr0c0d3@mail.com",
             password="4fr0c0d3!"
         )
+        self.user_login = {
+            "username":"4fr0c0d3",
+            "password" :"4fr0c0d3!"
+        }
+        

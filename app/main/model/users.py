@@ -29,7 +29,7 @@ class User(object):
                         "iat":datetime.utcnow(),
                         "sub":user_id
                         }
-            return jwt.encode(payload, current_app.config.get("SECRET_KEY"))
+            return jwt.encode(payload, current_app.config.get("SECRET_KEY"), algorithm="HS256")
         except Exception as e:
             print({"message":str(e)})
 
