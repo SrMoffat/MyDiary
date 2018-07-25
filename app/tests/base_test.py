@@ -6,3 +6,24 @@ from flask_testing import TestCase
 from manage import app
 from app.main.model.users import User
 
+class BaseTestCase(TestCase):
+    """
+    The Base Class for the Tests
+    """
+    def create_app(self):
+        """
+        Testing instance of the App
+        """
+        app.config.from_object("app.main.config.TestingConfig")
+        return app
+
+    def setUp(self):
+        """
+        Common variables for tests
+        """
+        self.user = User(
+            id=1,
+            username="4fr0c0d3",
+            email="4fr0c0d3@mail.com",
+            password="4fr0c0d3!"
+        )
