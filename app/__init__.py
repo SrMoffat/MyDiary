@@ -11,4 +11,6 @@ api = Api(blueprint,
           title='MyDiary RESTful API',
           description='A RESTful API built on Flask')
 
+del api.namespaces[0]
+
 api.add_namespace(auth_ns, path='/api/v2/auth')

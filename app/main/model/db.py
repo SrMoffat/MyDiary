@@ -10,7 +10,7 @@ class DatabaseConnection(object):
     """
     def __init__(self):        
         #try:
-        self.connection = psycopg2.connect(database="mydiary_test", 
+        self.connection = psycopg2.connect(database="diary_test", 
                                             user="postgres", 
                                             password="rootuser",
                                             host="localhost",
@@ -28,14 +28,29 @@ class DatabaseConnection(object):
         sql_queries=(
             """
             CREATE TABLE IF NOT EXISTS users (
-                user_id SERIAL PRIMARY_KEY,
+                user_id VARCHAR(255) NOT NULL,
                 username VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL,
-                password VARCHAR(255) NOT NULL
-            )
+                password VARCHAR(255) NOT NULL,
+                date_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (user_id)
+            );
+            """,
+            """
+            CREATE TABLE IF NOT EXISTS entries (
+                entry_id INTEGER NOT NULL,
+                user_id VARCHAR(255) NOT NULL,
+                title VARCHAR(255) NOT NULL,
+                content text NOT NULL,
+                date_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id)
+                    REFERENCES users (user_id)
+                    ON UPDATE CASCADE ON DELETE CASCADE
+            );
             """
         )
-        self.cursor.execute(sql_queries)
+        for query in sql_queries:
+            self.cursor.execute(query)
 
 if __name__ == "__main__":
     db_connection = DatabaseConnection()
