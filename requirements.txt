@@ -28,7 +28,9 @@ Mako==1.0.7
 MarkupSafe==1.0
 mccabe==0.6.1
 more-itertools==4.2.0
+pipenv==2018.7.1
 pluggy==0.6.0
+psycopg2==2.7.5
 py==1.5.4
 PyJWT==1.6.4
 pylint==1.9.2
@@ -41,5 +43,7 @@ requests==2.19.1
 six==1.11.0
 SQLAlchemy==1.2.10
 urllib3==1.23
+virtualenv==16.0.0
+virtualenv-clone==0.3.0
 Werkzeug==0.14.1
 wrapt==1.10.11
