@@ -23,7 +23,7 @@ class DatabaseConnection(object):
         sql_queries=(
             """
             CREATE TABLE IF NOT EXISTS users (
-                ID INT NOT NULL,
+                ID SERIAL,
                 user_id VARCHAR(255) NOT NULL,
                 username VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL,
@@ -34,11 +34,12 @@ class DatabaseConnection(object):
             """,
             """
             CREATE TABLE IF NOT EXISTS entries (
-                ID INT NOT NULL,
+                ID SERIAL,
                 owner_id INT NOT NULL,
                 title VARCHAR(255) NOT NULL,
                 content text NOT NULL,
                 date_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (ID),
                 FOREIGN KEY (owner_id)
                     REFERENCES users (ID)
                     ON UPDATE CASCADE ON DELETE CASCADE

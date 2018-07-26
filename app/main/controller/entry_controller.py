@@ -4,6 +4,7 @@ from flask import request
 from flask_restplus import Resource
 
 from ..utils.dto import EntryDto
+from ..utils.decorators import token_required
 from ..service.entry_service import add_entry
 
 api = EntryDto.api
@@ -24,9 +25,10 @@ class Entries(Resource):
         },
         security="apiKey")
     @api.expect(entry_model, validate=True)
+    @token_required
     def post(self, user_id):
         """
-        CREATE an entry
+        ADD an entry
         """
         data = request.json
-        return add_entry(data, user_id)
+        return add_entry(data, self)

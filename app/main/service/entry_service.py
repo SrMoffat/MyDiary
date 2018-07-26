@@ -27,11 +27,7 @@ def add_entry(data, owner):
                     "status":"failed!",
                     "error":"All fields required!",
                 }, 400
-            if len(title.split()) == 0 or len(content.split()) :
-                return {
-                    "status":"failed!",
-                    "error":"Invalid input!",
-                }, 400            
+              
         except (KeyError) as e:
             return {
                 "message":str(e)
@@ -42,7 +38,7 @@ def add_entry(data, owner):
         if new_entry_candidate:
             return {
                 "status":"success!",
-                "message":"User registered!"
+                "message":"Entry added!"
             }, 201
     return {
         "status":"failed!",

@@ -5,10 +5,6 @@ from datetime import datetime
 from flask import current_app
 from werkzeug.security import generate_password_hash
 
-from ..utils.dto import EntryDto
-
-api = EntryDto.api
-
 class Entry(object):
     """
     The ENTRY model for the API
@@ -27,7 +23,7 @@ class Entry(object):
         """
         INSERT ENTRY in DB
         """
-        sql_query = "INSERT INTO entries (title,content,owner) VALUES (%s,%s,%s,%s)"
+        sql_query = "INSERT INTO entries (title,content,owner_id) VALUES (%s,%s,%s)"
         cursor.execute(sql_query, (title,content,owner))
 
     @staticmethod
@@ -37,9 +33,7 @@ class Entry(object):
         """
         sql_query = "SELECT * FROM entries WHERE title = %s"
         dict_cursor.execute(sql_query,[title])
-        entry = dict_cursor.fetchone()
-        if not entry:
-            return api.abort(404, "Entry titled {} does not exist".format(title))
+        entry = dict_cursor.fetchone()        
         return entry
 
     @staticmethod
@@ -49,9 +43,7 @@ class Entry(object):
         """
         sql_query = "SELECT * FROM entries WHERE id = %s"
         dict_cursor.execute(sql_query,[entry_id])
-        entry_data = dict_cursor.fetchone()
-        if not entry_data:
-            return api.abort(404, "Entry {} does not exist".format(entry_id))
+        entry_data = dict_cursor.fetchone()        
         entry = {key:str(val) for key,val in entry_data.items() if val is not str}  
         return entry
 

@@ -25,7 +25,7 @@ class SignUp(Resource):
     @auth.expect(signup_model, validate=True)
     def post(self):
         """
-        CREATE a user
+        REGISTER a user
         """
         data = request.json
         return add_user(data)
