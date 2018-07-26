@@ -17,10 +17,13 @@ class UserDto(object):
     The User Data Transfer Object
     """
     auth = Namespace('auth', description='Operations related to the users')
-    user = auth.model('users', {
-        'id': fields.Integer(readonly=True),
-        'username': fields.String(required=True, description='The username for the user'),
-        'email': fields.String(required=True, description='The email for the suer'),
-        'password': fields.String(required=True, description='The password for the suer')
+    signup_model = auth.model('Registration', {        
+        'username': fields.String(required=True, description='Enter username', example="4fr0c0d3"),
+        'email': fields.String(required=True, description='Enter email', example="4fr0c0d3@mail.com"),
+        'password': fields.String(required=True, description='Password', example="d4rk4ng3l")
+    })
+    login_model = auth.model('Log In', {        
+        'username': fields.String(required=True, description='Enter username', example="4fr0c0d3"),
+        'password': fields.String(required=True, description='Password', example="d4rk4ng3l")
     })
     

@@ -10,7 +10,7 @@ class DatabaseConnection(object):
     """
     def __init__(self):        
         #try:
-        self.connection = psycopg2.connect(database="diary_test", 
+        self.connection = psycopg2.connect(database="mydiary_db", 
                                             user="postgres", 
                                             password="rootuser",
                                             host="localhost",

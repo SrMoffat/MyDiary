@@ -3,21 +3,42 @@ from flask import request
 from flask_restplus import Resource
 
 from ..utils.dto import UserDto
-from ..service.auth_service import add_user
+from ..service.auth_service import add_user, login_user
 
 auth = UserDto.auth
-user = UserDto.user
+signup_model = UserDto.signup_model
+login_model = UserDto.login_model
+
 
 @auth.route("/signup")
-class UserAuth(Resource):
+class SignUp(Resource):
     """
-    USER AUTHENTICATION Resource
+    USER SIGNUP Resource
     """
-    @auth.expect(user, validate=True)
+    @auth.doc("Add New User")
+    @auth.expect(signup_model, validate=True)
     @auth.response(201, "Successfully registered!")
+    @auth.response(409, "Username exists!")
+    @auth.response(400, "Invalid Input!")
     def post(self):
         """
         CREATE a user
         """
         data = request.json
         return add_user(data)
+
+@auth.route("/login")
+class Login(Resource):
+    """
+    USER LOGIN Resource
+    """    
+    @auth.doc("Login User")
+    @auth.expect(login_model, validate=True)
+    @auth.response(200, "Successfully logged in!")    
+    @auth.response(401, "Invalid credentials!")
+    def post(self):
+        """
+        LOGIN a user
+        """
+        data = request.json
+        return login_user(data)

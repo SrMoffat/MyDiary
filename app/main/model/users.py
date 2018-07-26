@@ -5,7 +5,7 @@ import uuid
 import jwt 
 
 from flask import current_app
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
 
 class User(object):
     """
