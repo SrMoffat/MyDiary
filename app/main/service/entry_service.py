@@ -1,1 +1,50 @@
 #entry_service.py
+import datetime 
+
+from flask import request
+
+from app.main.model.entries import Entry
+from app.main.model.db import DatabaseConnection
+
+# Establish DB connection and Set cursor
+conn = DatabaseConnection()
+cursor = conn.cursor 
+dict_cursor = conn.dict_cursor
+
+def add_entry(data, owner):
+    """
+    CREATE an ENTRY using information in payload
+    """
+    title = data["title"]
+    content = data["content"]
+    
+    # Check if entry exists in DB
+    new_entry = Entry.query_entry_by_title(dict_cursor, title)
+    if not new_entry:
+        try:
+            if not title or not content:
+                return {
+                    "status":"failed!",
+                    "error":"All fields required!",
+                }, 400
+            if len(title.split()) == 0 or len(content.split()) :
+                return {
+                    "status":"failed!",
+                    "error":"Invalid input!",
+                }, 400            
+        except (KeyError) as e:
+            return {
+                "message":str(e)
+            }                
+
+        Entry.add_entry_query(cursor, title, content, owner)
+        new_entry_candidate = Entry.query_entry_by_title(dict_cursor, title)
+        if new_entry_candidate:
+            return {
+                "status":"success!",
+                "message":"User registered!"
+            }, 201
+    return {
+        "status":"failed!",
+        "message":"Entry with same title exists!"
+    }, 409

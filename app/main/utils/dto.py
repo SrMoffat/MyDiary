@@ -6,10 +6,9 @@ class EntryDto(object):
     The Entry Data Transfer Object
     """
     api = Namespace('entries', description='Operations related to entries')
-    entry = api.model('entries', {
-        'id': fields.String(readonly=True),
-        'title': fields.String(required=True, description='The title for the journal entry'),
-        'content': fields.String(required=True, description='The content for the journal entry')
+    entry_model = api.model('Entries', {        
+        'title': fields.String(required=True, description='The title for the journal entry', example="My Day on the Moon"),
+        'content': fields.String(required=True, description='The content for the journal entry', example="Rivers, shivers, dealers, triggers")
     })
 
 class UserDto(object):

@@ -93,6 +93,3 @@ def login_user(data):
             "status":"failed!",
             "error":"Invalid credentials!"
         },401
-     
-
-

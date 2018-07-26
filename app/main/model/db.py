@@ -2,14 +2,11 @@
 import psycopg2
 import psycopg2.extras as extras
 
-from pprint import pprint
-
 class DatabaseConnection(object):
     """
     The DB Connection Operations
     """
-    def __init__(self):        
-        #try:
+    def __init__(self):    
         self.connection = psycopg2.connect(database="mydiary_db", 
                                             user="postgres", 
                                             password="rootuser",
@@ -18,8 +15,6 @@ class DatabaseConnection(object):
         self.connection.autocommit = True
         self.cursor = self.connection.cursor()
         self.dict_cursor = self.connection.cursor(cursor_factory=extras.DictCursor)
-        # except Exception as e:
-        #     pprint(e)
 
     def create_tables(self):
         """
@@ -28,23 +23,24 @@ class DatabaseConnection(object):
         sql_queries=(
             """
             CREATE TABLE IF NOT EXISTS users (
+                ID INT NOT NULL,
                 user_id VARCHAR(255) NOT NULL,
                 username VARCHAR(255) NOT NULL,
                 email VARCHAR(255) NOT NULL,
                 password VARCHAR(255) NOT NULL,
                 date_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-                PRIMARY KEY (user_id)
+                PRIMARY KEY (ID)
             );
             """,
             """
             CREATE TABLE IF NOT EXISTS entries (
-                entry_id INTEGER NOT NULL,
-                user_id VARCHAR(255) NOT NULL,
+                ID INT NOT NULL,
+                owner_id INT NOT NULL,
                 title VARCHAR(255) NOT NULL,
                 content text NOT NULL,
                 date_created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (user_id)
-                    REFERENCES users (user_id)
+                FOREIGN KEY (owner_id)
+                    REFERENCES users (ID)
                     ON UPDATE CASCADE ON DELETE CASCADE
             );
             """
