@@ -68,15 +68,23 @@ def login_user(data):
     LOGIN a REGISTERED USER
     """
     username = data["username"]
+    password = data["password"]
     
 
     # Check if user exists in DB
     login_candidate = User.query_user_by_name(dict_cursor, username)
     if login_candidate:
-        return {
-            "status":"success!",
-            "message":"You are now logged in!"
-        }, 200
+        # Retrieve password hash from DB then compare to password
+        if check_password_hash(User.query_user_password_hash(dict_cursor, username), password):
+            return {
+                "status":"success!",
+                "message":"You are now logged in!"
+            }, 200
+        else:
+            return {
+                "status":"failed!",
+                "message":"Incorrect password!"
+            },401 
     else:
         return {
             "status":"failed!",

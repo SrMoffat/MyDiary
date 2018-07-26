@@ -41,6 +41,14 @@ class User(object):
         return user
 
     @staticmethod
+    def query_user_password_hash(dict_cursor, username):
+        """
+        FETCH USER by USERNAME 
+        """
+        user = User.query_user_by_name(dict_cursor,username)    
+        return user["password"]
+
+    @staticmethod
     def query_all_users(dict_cursor):
         """
         FETCH ALL USERS
