@@ -10,7 +10,7 @@ MyDiary is an online journal where users can pen down their thoughts and feeling
 The UI templates can be tested on [github pages](https://srmoffat.github.io/MyDiary/UI/index.html)
 
 ## Non-persistent endpoints
-*The endpoints where no database has been used, only ADTs.*
+The non-persistent endpoints where *no database has been used, only ADTs.* are [here](https://github.com/SrMoffat/MyDiary/tree/non-persistent-endpoints)
 
 ## Current branch (auth-signup)
 `Setup for the signup resource` and the `tests` for the endpoint
