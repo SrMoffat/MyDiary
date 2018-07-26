@@ -12,9 +12,9 @@ The UI templates can be tested on [github pages](https://srmoffat.github.io/MyDi
 ## Non-persistent endpoints
 *The endpoints where no database has been used, only ADTs.*
 
-## Current branch
-`Setup for the database` including the models (users, entries, db)
-`Unit tests` for the authentication endpoints
+## Current branch (auth-signup)
+`Setup for the signup resource` and the `tests` for the endpoint
+
 
 
 
