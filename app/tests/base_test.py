@@ -10,8 +10,7 @@ class BaseTestCase(TestCase):
     """
     The Base Class for the Tests
     """
-    signup_uri = "api/v2/auth/signup"
-    login_uri = "api/v2/auth/login"
+    
     @staticmethod
     def create_app():
         """
@@ -33,7 +32,7 @@ class BaseTestCase(TestCase):
             "password":"4fr0c0d3!"
         }
         self.user = {
-            "username":"TestUser",
+            "username":"TestUser2",
             "email":"4fr0c0d3@mail.com",
             "password":"4fr0c0d3!"
         }
@@ -50,19 +49,6 @@ class BaseTestCase(TestCase):
             "content":"Planters, herbalists, natural, utopia"
         }
 
-    def user_signup_and_login(self):
-        """
-        POST :self.user: to api/v2/auth/signup
-        then
-        POST :self.login: to api/v2/auth/login
-        """
-        self.client.post(self.signup_uri,
-                         data=json.dumps(self.user),
-                         content_type="application/json")
-        response = self.client.post(self.login_uri,
-                                    data=json.dumps(self.user_login),
-                                    content_type="application/json")
-        return response
-
+    
     def tearDown(self):
         pass

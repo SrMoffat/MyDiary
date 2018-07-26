@@ -34,8 +34,11 @@ class Login(Resource):
     """    
     @auth.doc("Login User")
     @auth.expect(login_model, validate=True)
-    @auth.response(200, "Successfully logged in!")    
-    @auth.response(401, "Invalid credentials!")
+    @auth.doc(
+        responses={
+            200:"Successfully logged in!",   
+            401:"Invalid credentials!"
+        })
     def post(self):
         """
         LOGIN a user
