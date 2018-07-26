@@ -57,3 +57,20 @@ class User(object):
         dict_cursor.execute(sql_query)
         users = dict_cursor.fetchall()
         return users
+    
+    @staticmethod
+    def create_token(user_id):
+        """
+        CREATE JWT TOKEN
+        """
+        try:
+            payload = {
+                "exp":datetime.utcnow() + timedelta(minutes=15),
+                "iat":datetime.utcnow(),
+                "sub": user_id
+            }
+            return jwt.encode(payload, "SECRET_KEY").decode()
+        except Exception as e:
+           return {
+               "error":str(e)
+           }

@@ -73,12 +73,15 @@ def login_user(data):
 
     # Check if user exists in DB
     login_candidate = User.query_user_by_name(dict_cursor, username)
+
     if login_candidate:
         # Retrieve password hash from DB then compare to password
         if check_password_hash(User.query_user_password_hash(dict_cursor, username), password):
+            auth_token = User.create_token(login_candidate[0])
             return {
                 "status":"success!",
-                "message":"You are now logged in!"
+                "message":"You are now logged in!",
+                "token":auth_token
             }, 200
         else:
             return {
