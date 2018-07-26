@@ -32,7 +32,7 @@ class BaseTestCase(TestCase):
             "password":"4fr0c0d3!"
         }
         self.user = {
-            "username":"TestUser2",
+            "username":"MyTestUserI",
             "email":"4fr0c0d3@mail.com",
             "password":"4fr0c0d3!"
         }

@@ -34,17 +34,17 @@ def add_user(data):
             if not (re.match(pattern,username)):
                 return {
                     "status":"failed!",
-                    "message":"Invalid characters in username!",
+                    "error":"Invalid characters in username!",
                 }, 400
             if len(password) < 6:
                 return {
                     "status":"failed!",
-                    "message":"Password too weak!",
+                    "error":"Password too weak!",
                 }, 400
             if not (re.match(email_expression,email)):
                 return {
                     "status":"failed!",
-                    "message":"Invalid email!",
+                    "error":"Invalid email!",
                 }, 400
         except (KeyError) as e:
             return {
@@ -80,7 +80,7 @@ def login_user(data):
     else:
         return {
             "status":"failed!",
-            "message":"Invalid credentials!"
+            "error":"Invalid credentials!"
         },401
      
 

@@ -16,10 +16,13 @@ class SignUp(Resource):
     USER SIGNUP Resource
     """
     @auth.doc("Add New User")
+    @auth.doc(
+        responses={
+            201:"Successfully registered!",
+            409:"Username exists!",
+            400:"Invalid Input!"
+        })
     @auth.expect(signup_model, validate=True)
-    @auth.response(201, "Successfully registered!")
-    @auth.response(409, "Username exists!")
-    @auth.response(400, "Invalid Input!")
     def post(self):
         """
         CREATE a user
