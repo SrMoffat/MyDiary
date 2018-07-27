@@ -9,7 +9,7 @@ class DatabaseConnection(object):
     def __init__(self):    
         self.connection = psycopg2.connect(database="mydiary_db", 
                                             user="postgres", 
-                                            password="rootuser",
+                                            password=""
                                             host="localhost",
                                             port="5432")
         self.connection.autocommit = True

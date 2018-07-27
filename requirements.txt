@@ -3,6 +3,7 @@ aniso8601==3.0.2
 astroid==1.6.5
 atomicwrites==1.1.5
 attrs==18.1.0
+autoenv==1.0.0
 certifi==2018.4.16
 chardet==3.0.4
 click==6.7
@@ -28,7 +29,7 @@ Mako==1.0.7
 MarkupSafe==1.0
 mccabe==0.6.1
 more-itertools==4.2.0
-pipenv==2018.7.1
+pkg-resources==0.0.0
 pluggy==0.6.0
 psycopg2==2.7.5
 py==1.5.4
@@ -43,7 +44,5 @@ requests==2.19.1
 six==1.11.0
 SQLAlchemy==1.2.10
 urllib3==1.23
-virtualenv==16.0.0
-virtualenv-clone==0.3.0
 Werkzeug==0.14.1
 wrapt==1.10.11
