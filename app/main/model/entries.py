@@ -42,7 +42,7 @@ class Entry(object):
         FETCH ENTRY by ID
         """
         sql_query = "SELECT * FROM entries WHERE id = %s"
-        dict_cursor.execute(sql_query,[entry_id])
+        dict_cursor.execute(sql_query,(entry_id))
         entry_data = dict_cursor.fetchone()        
         entry = {key:str(val) for key,val in entry_data.items() if val is not str}  
         return entry
@@ -52,17 +52,17 @@ class Entry(object):
         """
         FETCH ALL entries 
         """
-        sql_query = "SELECT * FROM users WHERE user_id = %s"
-        dict_cursor.execute(sql_query, [user_id])
+        sql_query = "SELECT * FROM entries WHERE owner_id = %s"
+        dict_cursor.execute(sql_query, (user_id))
         entries = dict_cursor.fetchall()
         entry_holder = []
         for entry in entries:
             entry_result = {
-                "id":entry["id"],
-                "title":entry["title"],
-                "content":entry["content"],
-                "owner":entry["owner_id"],
-                "date created":entry["date_created"].strftime("%d-%b-%Y : %H:%M:%S")
+                "id":entry[0],
+                "title":entry[2],
+                "content":entry[3],
+                "owner":entry[1],
+                "date created":entry[4].strftime("%d-%b-%Y : %H:%M:%S")
                 }
             entry_holder.append(entry_result)
         return entry_holder

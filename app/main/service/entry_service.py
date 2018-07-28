@@ -44,3 +44,14 @@ def add_entry(data, owner):
         "status":"failed!",
         "message":"Entry with same title exists!"
     }, 409
+
+def get_all_entries(owner):
+    """
+    FECTH ALL ENTRIES belonging to a user
+    """
+    entries = Entry.query_all_entries(dict_cursor, owner)
+    if not entries:
+        return {
+            "error":"No entries exist!"
+        }, 404
+    return entries, 200
