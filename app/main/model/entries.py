@@ -42,7 +42,7 @@ class Entry(object):
         FETCH ENTRY by ID
         """
         sql_query = "SELECT * FROM entries WHERE id = %s"
-        dict_cursor.execute(sql_query,(entry_id))
+        dict_cursor.execute(sql_query,([entry_id]))
         entry_data = dict_cursor.fetchone()        
         entry = {key:str(val) for key,val in entry_data.items() if val is not str}  
         return entry

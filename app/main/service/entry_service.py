@@ -55,3 +55,15 @@ def get_all_entries(owner):
             "error":"No entries exist!"
         }, 404
     return entries, 200
+
+def get_one_entry(entry_id, owner):
+    """
+    FECTH ONE ENTRY belonging to a user
+    """
+    entry = Entry.query_entry_by_id(dict_cursor, entry_id)
+    if entry["owner_id"] != owner:
+        return {
+            "error":"Unauthorized operation!"
+        }, 401
+    return entry
+

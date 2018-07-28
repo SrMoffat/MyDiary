@@ -5,7 +5,7 @@ from flask_restplus import Resource
 
 from ..utils.dto import EntryDto
 from ..utils.decorators import token_required
-from ..service.entry_service import add_entry, get_all_entries
+from ..service.entry_service import add_entry, get_all_entries, get_one_entry
 
 api = EntryDto.api
 entry_model = EntryDto.entry_model
@@ -48,3 +48,24 @@ class Entries(Resource):
         FETCH all entries
         """
         return get_all_entries(self)
+
+@api.route("/entries/<int:entry_id>")
+class SingleEntry(Resource):
+    """
+    Single ENTRY Resource
+    """
+    @api.doc("Get an Entry")
+    @api.doc(
+        responses={
+            200:"Fetch Successful!",
+            400:"Bad Request!",
+            404:"Entry not found!"
+        },
+        security="apiKey")
+    @api.marshal_with(entry_model, envelope="entry")
+    @token_required
+    def get(self, user_id, entry_id):
+        """
+        FETCH an entry
+        """
+        return get_one_entry(entry_id, self)
