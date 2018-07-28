@@ -48,4 +48,3 @@ class Entries(Resource):
         FETCH all entries
         """
         return get_all_entries(self)
-
