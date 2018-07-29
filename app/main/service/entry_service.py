@@ -67,3 +67,18 @@ def get_one_entry(entry_id, owner):
         }, 401
     return entry
 
+def modify_entry(entry_id, owner, data):
+    """
+    MODIFY ONE ENTRY belonging to a user
+    """
+    updated_entry = Entry.query_entry_update(dict_cursor, cursor, entry_id, owner, data)
+    if not updated_entry:
+        return {
+            "error":"Entry not found!"
+        }, 404
+    return {
+        "message":"Successfully updated entry!",
+        "entry": updated_entry
+    }, 200
+
+

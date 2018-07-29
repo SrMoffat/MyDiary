@@ -5,7 +5,7 @@ from flask_restplus import Resource
 
 from ..utils.dto import EntryDto
 from ..utils.decorators import token_required
-from ..service.entry_service import add_entry, get_all_entries, get_one_entry
+from ..service.entry_service import add_entry, get_all_entries, get_one_entry, modify_entry
 
 api = EntryDto.api
 entry_model = EntryDto.entry_model
@@ -69,3 +69,20 @@ class SingleEntry(Resource):
         FETCH an entry
         """
         return get_one_entry(entry_id, self)
+
+    @api.doc("Modify an Entry")
+    @api.doc(
+        responses={
+            200:"Fetch Successful!",
+            400:"Bad Request!",
+            404:"Entry not found!"
+        },
+        security="apiKey"
+    )
+    @token_required
+    def put(self, user_id, entry_id):
+        """
+        MODIFY an entry
+        """
+        data = request.json
+        return modify_entry(self, entry_id, data)

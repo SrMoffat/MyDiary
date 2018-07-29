@@ -66,4 +66,16 @@ class Entry(object):
                 }
             entry_holder.append(entry_result)
         return entry_holder
- 
+
+    @staticmethod
+    def query_entry_update(dict_cursor, cursor, data, entry_id, owner):
+        entry = Entry.query_entry_by_id(dict_cursor,entry_id)
+        if entry["owner_id"] != owner:
+            return {
+                "error":"Unauthorized operation!"
+            }, 401
+        sql_query = "UPDATE entries SET title=%s, content=%s WHERE (id=%s)"
+        update = cursor.execute(sql_query, (data["title"],data["content"],entry_id))
+        return update
+            
+    
