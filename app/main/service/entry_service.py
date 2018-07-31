@@ -76,10 +76,6 @@ def modify_entry(entry_id, owner, data):
     
     updated_entry = Entry.query_entry_update(dict_cursor, cursor, entry_id, owner, data)
     
-    if not updated_entry:
-        return {
-            "error":"Entry not found!"
-        }, 404
     return {
         "message":"Successfully updated entry!",
         "entry": updated_entry

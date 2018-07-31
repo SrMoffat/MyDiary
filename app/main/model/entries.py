@@ -79,7 +79,8 @@ class Entry(object):
         entry = Entry.query_entry_by_id(dict_cursor,entry_id)
         print(entry)       
         sql_query = "UPDATE entries SET title=%s, content=%s WHERE (id=%s)"
-        update = cursor.execute(sql_query, (owner[u"title"],owner[u"content"],entry_id))
-        return update
-            
+        cursor.execute(sql_query, (owner[u"title"],owner[u"content"],entry_id))
+        entry["date created"] = str(entry["date created"])
+        return entry
+    
     
