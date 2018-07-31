@@ -43,9 +43,16 @@ class Entry(object):
         """
         sql_query = "SELECT * FROM entries WHERE id = %s"
         dict_cursor.execute(sql_query,([entry_id]))
-        entry_data = dict_cursor.fetchone()        
-        entry = {key:str(val) for key,val in entry_data.items() if val is not str}  
-        return entry
+        entry_data = dict_cursor.fetchone()
+        
+        entry_holder = {
+            "id": entry_data[0],
+            "owner":entry_data[1],
+            "title": entry_data[2],
+            "content": entry_data[3],
+            "date created": entry_data[4]
+        }
+        return entry_holder
 
     @staticmethod
     def query_all_entries(dict_cursor, user_id):
@@ -70,12 +77,9 @@ class Entry(object):
     @staticmethod
     def query_entry_update(dict_cursor, cursor, data, entry_id, owner):
         entry = Entry.query_entry_by_id(dict_cursor,entry_id)
-        if entry["owner_id"] != owner:
-            return {
-                "error":"Unauthorized operation!"
-            }, 401
+        print(entry)       
         sql_query = "UPDATE entries SET title=%s, content=%s WHERE (id=%s)"
-        update = cursor.execute(sql_query, (data["title"],data["content"],entry_id))
+        update = cursor.execute(sql_query, (owner[u"title"],owner[u"content"],entry_id))
         return update
             
     

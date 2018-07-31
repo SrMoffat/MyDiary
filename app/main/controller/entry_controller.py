@@ -68,7 +68,12 @@ class SingleEntry(Resource):
         """
         FETCH an entry
         """
-        return get_one_entry(entry_id, self)
+        try:
+            return get_one_entry(entry_id, self)
+        except:
+            return {
+                "error":"Entry not found!"
+            }
 
     @api.doc("Modify an Entry")
     @api.doc(

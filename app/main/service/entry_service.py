@@ -61,17 +61,21 @@ def get_one_entry(entry_id, owner):
     FECTH ONE ENTRY belonging to a user
     """
     entry = Entry.query_entry_by_id(dict_cursor, entry_id)
-    if entry["owner_id"] != owner:
+
+    if entry is None:
         return {
-            "error":"Unauthorized operation!"
-        }, 401
+            "error":"Entry does not exist!"
+        }, 404
+    
     return entry
 
 def modify_entry(entry_id, owner, data):
     """
     MODIFY ONE ENTRY belonging to a user
     """
+    
     updated_entry = Entry.query_entry_update(dict_cursor, cursor, entry_id, owner, data)
+    
     if not updated_entry:
         return {
             "error":"Entry not found!"
