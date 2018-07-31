@@ -77,10 +77,18 @@ class Entry(object):
     @staticmethod
     def query_entry_update(dict_cursor, cursor, data, entry_id, owner):
         entry = Entry.query_entry_by_id(dict_cursor,entry_id)
-        print(entry)       
         sql_query = "UPDATE entries SET title=%s, content=%s WHERE (id=%s)"
         cursor.execute(sql_query, (owner[u"title"],owner[u"content"],entry_id))
         entry["date created"] = str(entry["date created"])
         return entry
+
+    @staticmethod
+    def query_remove_entry(dict_cursor,cursor,entry_id,owner):
+        entry = Entry.query_entry_by_id(dict_cursor, entry_id)
+        sql_query = "DELETE from entries WHERE (id=%s)"
+        cursor.execute(sql_query,[entry_id])
+        print(entry)
+
+
     
     

@@ -81,4 +81,15 @@ def modify_entry(entry_id, owner, data):
         "entry": updated_entry
     }, 200
 
+def remove_entry(owner, entry_id):
+    """
+    REMOVE an Entry belonging to a user
+    """
+    Entry.query_remove_entry(dict_cursor,cursor,entry_id,owner)
+    return {
+        "message":"Entry deleted!"
+    }, 200
+
+
+
 

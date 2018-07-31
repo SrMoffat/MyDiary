@@ -5,7 +5,7 @@ from flask_restplus import Resource
 
 from ..utils.dto import EntryDto
 from ..utils.decorators import token_required
-from ..service.entry_service import add_entry, get_all_entries, get_one_entry, modify_entry
+from ..service.entry_service import add_entry, get_all_entries, get_one_entry, modify_entry, remove_entry
 
 api = EntryDto.api
 entry_model = EntryDto.entry_model
@@ -91,3 +91,18 @@ class SingleEntry(Resource):
         """
         data = request.json
         return modify_entry(self, entry_id, data)
+
+    @api.doc("Remove an Entry")
+    @api.doc(
+        responses={
+            200:"Successfully deleted!",
+            400:"Bad Request!",
+            404:"Entry not found!"
+        },
+        security="apiKey")
+    @token_required
+    def delete(self, user_id, entry_id):
+        """
+        REMOVE an Entry
+        """
+        return remove_entry(user_id,entry_id)
