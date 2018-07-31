@@ -12,8 +12,64 @@ The UI templates can be tested on [github pages](https://srmoffat.github.io/MyDi
 ## Non-persistent endpoints
 The non-persistent endpoints where *no database has been used, only ADTs.* are [here](https://github.com/SrMoffat/MyDiary/tree/non-persistent-endpoints)
 
-## Current branch (auth-login)
-Setup for the `login resource` and the `tests` for the endpoint
+## Persistent endpoints
+The persistent endpoints where *a POSTGRESQL database has been used* are [here](https://github.com/SrMoffat/MyDiary/tree/ft2-delete-entry)
+
+## Features
+1. Users can create an account and log in.
+2. Users can view all entries to their diary.
+3. Users can view the contents of a diary entry.
+4. Users can add an entry.
+5. Users can modify an entry.
+
+## Getting Started
+1. **Clone repository** `git clone https://github.com/SrMoffat/MyDiary.git`
+2. **Navigate to directory** `cd MyDiary`
+3. **Create virtual environment** `virtualenv venv`
+4. **Activate environment** `source/venv/bin/activate`
+4. **Set .env variables** `see "example_env"`
+5. **Install dependencies** `pip install -r requirements.txt`
+6. **Run app** `python manage.py run`
+7. **Open postman/curl**
+8. **Navigate to endpoints** e.g. `POST http://127.0.0.1:5000/api/v2/entries` to *ADD* an entry
+
+### Prerequisites
+
+1. [Python](https://www.python.org/downloads/release/python-370/)
+2. [Flask](http://flask.pocoo.org/docs/1.0/)
+3. [Postresql](https://www.postgresql.org/docs/10/static/index.html)
+
+## Tools
+1. [Virtualenv]()
+2. [Pytest](https://docs.pytest.org/en/latest/contents.html)
+3. [Postman](https://www.getpostman.com/)
+
+## Running the tests
+**Run this command:** ```pytest```
+**With coverage** ```pytest --cov```
+
+## Contributing
+
+Please feel free to fork the repository and contribute on [Github](https://github.com/SrMoffat/MyDiary)
+
+## Versioning
+
+The REST API uses ordinal number versioning with the first being `v1` without persistence and `v2` with a database
+
+## Authors
+
+* **Ngige Gitau** - *All the work* - [Github](https://github.com/SrMoffat/MyDiary)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone who unblocked me during the bootcamp 
+* Special thanks to Andela for the opportunity
+* Special thanks to Joan Awinja Ingari and Gideon Gitau for the correspondence 
+
 
 
 
