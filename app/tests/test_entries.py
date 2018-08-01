@@ -56,7 +56,8 @@ class TestEntries(BaseTestCase):
                                             "content-type":"application/json"
                                         })
             self.assertEqual(response.status_code, 200)
-            self.assertIn("Test entry post", response.data)
+            result = json.loads(response.data)                      
+            self.assertIn("Test entry post", result[u"entries"][0][u"title"])
     def test_get_entry_by_id(self):
         with self.client:
             response = register_user(self)
