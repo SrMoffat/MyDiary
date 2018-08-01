@@ -12,6 +12,9 @@ The UI templates can be tested on [github pages](https://srmoffat.github.io/MyDi
 ## Non-persistent endpoints
 The non-persistent endpoints where *no database has been used, only ADTs.* are [here](https://github.com/SrMoffat/MyDiary/tree/non-persistent-endpoints)
 
+### Non-persistent version
+Try out the non-persistent endpoints on [Heroku](https://mydiary-moff.herokuapp.com/)
+
 ## Persistent endpoints
 The persistent endpoints where *a POSTGRESQL database has been used* are [here](https://github.com/SrMoffat/MyDiary/tree/ft2-delete-entry)
 
