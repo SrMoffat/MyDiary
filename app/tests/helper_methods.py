@@ -16,7 +16,8 @@ def register_user(self):
         )
 
 def login_user(self):
-    """helper function for login a user."""
+    """LOGIN user
+    """
     return self.client.post(
         'api/v2/auth/login',
         data=json.dumps(dict(

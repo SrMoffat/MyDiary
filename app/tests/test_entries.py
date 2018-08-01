@@ -29,7 +29,6 @@ class TestEntries(BaseTestCase):
             self.assertEqual(response.status_code, 201)
             self.assertIn("Entry added!", result[u"message"])
             self.assertIn("success!", result[u"status"])
-
     def test_get_all_entries(self):
         with self.client:
             response = register_user(self)
@@ -58,7 +57,6 @@ class TestEntries(BaseTestCase):
                                         })
             self.assertEqual(response.status_code, 200)
             self.assertIn("Test entry post", response.data)
-
     def test_get_entry_by_id(self):
         with self.client:
             response = register_user(self)
@@ -81,7 +79,6 @@ class TestEntries(BaseTestCase):
                                             "content-type":"application/json"
                                         })
             self.assertEqual(response.status_code, 200)
-
     def test_entry_modification(self):
         with self.client:
             response = register_user(self)
@@ -105,7 +102,6 @@ class TestEntries(BaseTestCase):
                                         },
                                         data=self.update_entry)
             self.assertEqual(response.status_code, 200)
-
     def test_delete_entry(self):
         with self.client:
             response = register_user(self)

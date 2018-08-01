@@ -11,6 +11,7 @@ script:
 
 branches:
   only:
+  - ch-refactor-tests
   - non-persistent-endpoints
   - develop
   - master
