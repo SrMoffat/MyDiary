@@ -64,4 +64,8 @@ class TestAuth(BaseTestCase):
                                         password='TestUserpas')),
                                         content_type='application/json')
             self.assertEqual(response.status_code, 401)
+    def test_login_unregistered_user(self):
+        with self.client:
+            response = login_user(self)
+            self.assertEqual(response.status_code, 401)
    
