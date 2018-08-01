@@ -4,7 +4,9 @@ import json
 from flask_testing import TestCase
 
 from manage import app
+from app.main.model.db import DatabaseConnection
 from app.main.model.users import User
+from app.main.model.entries import Entry
 
 class BaseTestCase(TestCase):
     """
@@ -26,29 +28,26 @@ class BaseTestCase(TestCase):
         self.app = app
         self.client = self.app.test_client(self)
         self.app.testing = True
-        self.invalid_username = {
-            "username":"4fr0c0d3",
-            "email":"4fr0c0d3@mail.com",
-            "password":"4fr0c0d3!"
-        }
-        self.user = {
-            "username":"MyTestUserI",
-            "email":"4fr0c0d3@mail.com",
-            "password":"4fr0c0d3!"
-        }
-        self.user_login = {
-            "email":"4fr0c0d3@mail.com",
-            "password":"4fr0c0d3!"
-        }
-        self.entry_payload = {
-            "title":"My Day on the Moon",
-            "content":"Rivers, shivers, dealers, triggers"
-        }
-        self.update_entry_payload = {
-            "title":"My Updated Day in Space",
-            "content":"Planters, herbalists, natural, utopia"
-        }
-
+        self.db = DatabaseConnection()
+        self.cursor = self.db.cursor
+        self.dict_cursor = self.db.dict_cursor
+        self.db.create_tables()
+        self.user = User(id=1,
+                         username="Kalashnikov",
+                         email="4k47ashkash@mail.com",
+                         password="4k47ashkash")
+        self.test_entry = Entry(id=1,
+                                owner="1",
+                                title="First Test Title",
+                                content="This is the test content for the entry")
+        self.post_entry = json.dumps({
+            "title":"Test entry post",
+            "content":"This is the test entry post content"
+        })
+        self.update_entry = json.dumps({
+            "title":"Update test entry post",
+            "content":"This is the update for the test entry post content"
+        })
     
     def tearDown(self):
-        pass
+        self.db.drop_all()

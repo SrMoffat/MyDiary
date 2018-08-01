@@ -26,7 +26,8 @@ The persistent endpoints where *a POSTGRESQL database has been used* are [here](
 1. **Clone repository** `git clone https://github.com/SrMoffat/MyDiary.git`
 2. **Navigate to directory** `cd MyDiary`
 3. **Create virtual environment** `virtualenv venv`
-4. **Activate environment** `source/venv/bin/activate`
+4. **Activate environment (Ubuntu)** `source/venv/bin/activate`
+4. **Activate environment (Windows)** `cd venv/scripts/activate`
 4. **Set .env variables** `see "example_env"`
 5. **Install dependencies** `pip install -r requirements.txt`
 6. **Run app** `python manage.py run`

@@ -1,0 +1,7 @@
+set SECRET_KEY='putyourshere'
+set APP_CONFIG='putyourshere'
+set DB_NAME='putyourshere'
+set DB_USER='putyourshere'
+set DB_PWD='putyourshere'
+set DB_HOST='putyourshere'
+set DB_PORT='putyourshere'

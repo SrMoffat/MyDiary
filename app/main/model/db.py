@@ -49,6 +49,18 @@ class DatabaseConnection(object):
         for query in sql_queries:
             self.cursor.execute(query)
 
+    def drop_all(self):
+        drop_queries=(
+            """
+            DROP TABLE IF EXISTS users CASCADE
+            """,
+            """
+            DROP TABLE IF EXISTS entries CASCADE
+            """
+        )
+        for query in drop_queries:
+            self.cursor.execute(query)
+
 if __name__ == "__main__":
     db_connection = DatabaseConnection()
     db_connection.create_tables()
