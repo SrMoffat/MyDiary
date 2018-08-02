@@ -1,0 +1,30 @@
+{
+  "name": "mydiary",
+  "version": "1.0.0",
+  "description": "MyDiary is an online application where users can jot down their thoughts and feelings.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.16.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SrMoffat/MyDiary.git"
+  },
+  "keywords": [
+    "ES6",
+    "Fetch"
+  ],
+  "author": "Ngige Gitau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SrMoffat/MyDiary/issues"
+  },
+  "homepage": "https://github.com/SrMoffat/MyDiary#readme"
+}
