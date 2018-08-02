@@ -1,2 +1,53 @@
-# MyDiary
-MyDiary is an online journal where users can pen down their thoughts and feelings.
+[![Build Status](https://travis-ci.org/SrMoffat/MyDiary.svg?branch=ch-refactor-tests)](https://travis-ci.org/SrMoffat/MyDiary)
+[![Coverage Status](https://coveralls.io/repos/github/SrMoffat/MyDiary/badge.svg?branch=ch-refactor-tests)](https://coveralls.io/github/SrMoffat/MyDiary?branch=ch-refactor-tests)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1035762f60c44fc4a83ed5900b7eeecd)](https://www.codacy.com/app/SrMoffat/MyDiary?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SrMoffat/MyDiary&amp;utm_campaign=Badge_Grade)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f981ab50b5790bf90bab/maintainability)](https://codeclimate.com/github/SrMoffat/MyDiary/maintainability)
+
+# MyDiary Fetch API
+The Fetch API implemented in JavaScript consumes the data from the MyDiary REST API to power the front-end of the MyDiary application that is an online journal where users can pen down their thoughts and feelings.
+
+## Github Pages
+The UI templates can be tested on [github pages](https://srmoffat.github.io/MyDiary/UI/index.html)
+
+## Non-persistent endpoints
+The non-persistent endpoints where *no database has been used, only ADTs.* are [here](https://github.com/SrMoffat/MyDiary/tree/non-persistent-endpoints)
+
+### Non-persistent version
+Try out the non-persistent endpoints on [Heroku](https://mydiary-moff.herokuapp.com/)
+
+## Persistent endpoints
+The persistent endpoints where *a POSTGRESQL database has been used* are [here](https://github.com/SrMoffat/MyDiary/tree/ft2-delete-entry)
+
+## Features
+1. Users can create an account and log in.
+2. Users can view all entries to their diary.
+3. Users can view the contents of a diary entry.
+4. Users can add an entry.
+5. Users can modify an entry.
+
+## Contributing
+
+Please feel free to fork the repository and contribute on [Github](https://github.com/SrMoffat/MyDiary)
+
+## Versioning
+
+The REST API uses ordinal number versioning with the first being `v1` without persistence and `v2` with a database
+
+## Authors
+
+* **Ngige Gitau** - *All the work* - [Github](https://github.com/SrMoffat/MyDiary)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone who unblocked me during the bootcamp 
+* Special thanks to Andela for the opportunity
+* Special thanks to **Joan Awinja Ingari** and **Gideon Gitau** for the correspondence 
+
+
+
+
+
