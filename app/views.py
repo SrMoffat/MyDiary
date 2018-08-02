@@ -51,3 +51,17 @@ def view_entry():
     Render the view_entry page
     """
     return render_template("viewentry.html")
+
+@app.route("/notifications")
+def notifications():
+    """
+    Render the notifications page
+    """
+    return render_template("notifications.html")
+
+@app.route("/profile")
+def profile():
+    """
+    Render the user profile page
+    """
+    return render_template("profile.html")
