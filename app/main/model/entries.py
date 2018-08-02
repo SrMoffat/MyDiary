@@ -84,10 +84,10 @@ class Entry(object):
 
     @staticmethod
     def query_remove_entry(dict_cursor,cursor,entry_id,owner):
-        entry = Entry.query_entry_by_id(dict_cursor, entry_id)
+        Entry.query_entry_by_id(dict_cursor, entry_id)
         sql_query = "DELETE from entries WHERE (id=%s)"
         cursor.execute(sql_query,[entry_id])
-        print(entry)
+        
 
 
     
