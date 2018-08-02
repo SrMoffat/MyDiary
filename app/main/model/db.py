@@ -1,4 +1,5 @@
 #db.py
+import os
 import psycopg2
 import psycopg2.extras as extras
 
@@ -7,11 +8,11 @@ class DatabaseConnection(object):
     The DB Connection Operations
     """
     def __init__(self):    
-        self.connection = psycopg2.connect(database="mydiary_db", 
-                                            user="postgres", 
-                                            password="rootuser",
-                                            host="localhost",
-                                            port="5432")
+        self.connection = psycopg2.connect(database=os.getenv("DB_NAME"), 
+                                            user=os.getenv("DB_USER"), 
+                                            password=os.getenv("DB_PWD"),
+                                            host=os.getenv("DB_HOST"),
+                                            port=os.getenv("DB_PORT"))
         self.connection.autocommit = True
         self.cursor = self.connection.cursor()
         self.dict_cursor = self.connection.cursor(cursor_factory=extras.DictCursor)
