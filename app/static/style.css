@@ -1,0 +1,428 @@
+/*
+Custom CSS Stylesheet
+Author: Ngige Gitau
+For: MyDiary Web Application
+Updated: 23rd July 2018
+*/
+
+body{
+	font: 15px/1.5 "Comic Sans MS", cursive, sans-serif;
+	padding:0;
+	margin:0;
+	background-color:#f4f4f4;
+}
+
+/* ----- Global ----- */
+.container{
+	width:80%;
+	margin:auto;
+	overflow:hidden;
+}
+ul{
+	margin:0;
+	padding:0;
+}
+.highlight{
+	color:#09D647;
+	font-weight:bold;	
+}
+.button_prime{
+	height:38px;
+	background:#109D3B;
+	border-radius: 4px;	
+	border:0;
+	padding-left: 20px;
+	padding-right:20px;
+	color:#ffffff;
+}
+.button_nav{
+	height:35px;
+	background:#000000;
+	border-radius: 4px;	
+	border:0;
+	padding-left: 20px;
+	padding-right:20px;
+	color:#09D647;
+	margin-bottom: 3px;
+	width: 15%; 	
+}
+.button_red{
+	height:38px;
+	background:#FD0215;
+	border-radius: 4px;	
+	border:0;
+	padding-left: 20px;
+	padding-right:20px;
+	color:#ffffff;
+	margin-bottom: 3px;
+	
+}
+.dark{
+	padding:15px;
+	background:#000000;
+	color:#ffffff;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #000000;
+    color: #09D647;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+/* Add a background color to the button */
+.active, .accordion:hover {
+    background-color: #A8ABAC;
+}
+.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+/* ----- The Modal ----- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* ----- The Modal Content ----- */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* depending on screen size */
+}
+/* ----- The Close Button ----- */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* ----- Modal Header ----- */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #000000;
+    color: #09D647;
+}
+/* ----- Modal Body ----- */
+.modal-body {
+	padding: 2px 16px;
+}
+/* ----- Modal Footer ----- */
+.modal-footer {
+    padding: 2px 16px;
+    background-color:#000000;
+    color: #09D647;
+}
+
+/* ----- Modal Content ----- */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* ----- Add Animation ----- */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+/* Style input type text (Forms) */
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px;  
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical
+}
+/* Style input type email (Forms) */
+input[type=email], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical 
+}
+/* Style input type password (Forms) */
+input[type=password], select, textarea {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 4px; 
+    margin-bottom: 14px; 
+    resize: vertical 
+}
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #109D3B;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Style the datetime-local input type */
+input[type=datetime-local]{
+	border-radius: 3px;
+	background-color:#000000;
+	height:30px;
+	color:#09D647;
+}
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
+/* ----- Header ----- */
+header{
+	background:#000000;
+	color:#ffffff;	
+	min-height:70px;
+	border-bottom:#09D647 3px solid;
+}
+header a{
+	color:#ffffff;
+	text-decoration:none;
+	text-transform: uppercase;
+	font-size:16px;
+}
+header li{
+	float:left;
+	display:inline;
+	padding: 0 20px 20px 20px;
+	margin-top:;
+}
+header #branding{
+    float:left;
+}
+header #branding h1{
+    margin:0;
+}
+header nav{
+	float:right;
+	margin-top:-50px;
+}
+header .highlight, header .current a{
+	color:#09D647;
+	font-weight:bold;	
+}
+header a:hover{
+	color:#cccccc;
+	font-weight:bold;
+}
+
+
+/* ----- Jumbotrn ----- */
+#jumbotrn {
+	border-radius:7px;
+	padding:15px;
+	color:#ffffff;
+	background:#000000;
+	margin-top: 25px; 
+	margin-left: 400px; 
+	margin-right: 400px;
+}
+#jumbotrn_container h2 {
+	text-align: center; 
+	color:#09D647; 
+}
+#jumbotrn_container p {
+	font-size:8pt;
+	text-align:center;
+}
+#jumbotrn_container a {
+	text-decoration:none;
+	color:#09D647;
+}
+#dash_container {
+	border-radius: 4px;
+}
+#dash_container img {
+	border: 2px solid #ddd; 
+    border-radius: 4px; 
+    padding: 5px; 
+    width: 150px; 
+	float:left;
+	padding-left:0px;
+}
+#avatar{
+	margin-top: 20px;
+}
+#avatar_stat{
+	margin-left: 170px; 
+	margin-top:70px;
+}
+#avatar_stat a{
+	text-decoration: none;
+	color: #ffffff; 	
+}
+
+
+/* ----- Index_caption ----- */
+#index_caption{
+	min-height:400px;
+	margin:10px 0 10px 0;
+	background-color:#000000;
+	color:#ffffff;
+}
+#index_caption h1 {
+	font-size:30px;
+	text-align:center;
+	margin-top:100px;
+}
+#index_caption p {
+	text-align:center;
+	font-size:20px;
+	font-family:Arial;
+}
+#index_caption a {
+	text-decoration:none;	
+	color:#ffffff;
+}
+#main-col a {
+	text-decoration: none;
+	color: #09D647;
+}
+#editor_container{
+	border-radius:3px;
+	width:75%;
+}
+#add_entry_btn{
+	float:right; 
+	margin-bottom: 5px;
+}
+#signup-btn{
+	margin-left:460px;
+}
+#entries_container img {
+	margin-top: 4px;
+    border: 1px solid #ddd; 
+    border-radius: 4px;  
+    padding: 5px; 
+    width: 60%; 
+	height: 200px;
+	text-align: center;
+}
+#entries_container img:hover{	
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+
+/* ----- Footer ----- */
+footer{
+  position:fixed ;
+  bottom: 0;
+  padding:0%;
+ 
+  color:#09D647;
+  background-color:#000000;
+  text-align: center;
+  border-top:#09D647 3px solid;
+  width: 100%;
+}
+
+/* Media Queries */
+@media(max-width: 768px){
+	header #logo,
+	header nav,
+	header nav li
+	{
+	float:none;
+	text-align:center;
+	width: 100%;	
+  }
+  header nav ul{
+	  margin-top: 60px
+  }
+  
+  #dash_container h2 {
+	  text-align:center;
+  }
+  #avatar_stat {
+	  float: right;
+	  margin-top:-20px;
+  }
+ #avatar_stat2 {
+	  float: right;
+	  margin-top:-20px;
+  }
+ 
+#avatar_stat button {
+	  margin-top:55px;
+	  margin-left:25px;
+  }
+ #avatar_stat2 button {
+	  margin-top:55px;
+	  margin-left:25px;
+  }
+   #avatar_stat2 a {
+	  text-decoration:none;
+	  color:#ffffff;
+  }
+  .button_nav{
+	  width:70%;
+	  margin-left:75px;
+  }
+#signup-btn{
+	margin-left:80px;
+	width:70%;
+}
+#jumbotrn{
+	width:70%;
+	margin-left:70px;
+}
+#jumbotrn form input[type="submit"]{
+	width:70%;
+	margin-left:60px;
+}
+
+
