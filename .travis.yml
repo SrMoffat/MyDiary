@@ -4,6 +4,12 @@ python:
 # command to install dependencies
 install:
   - "pip install -r requirements.txt"
+  - "pip install coveralls"
+
+before_script:
+  - psql -c "create database mydiary_db;" -U postgres
+  - psql -c "create user moff with password '4fr0c0d3' createdb;" -U postgres
+  - python app/main/model/db.py 
 
 # command to run tests
 script:
@@ -11,6 +17,7 @@ script:
 
 branches:
   only:
+  - ch-refactor-tests
   - non-persistent-endpoints
   - develop
   - master

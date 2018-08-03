@@ -1,110 +1,95 @@
-# entry_service.py
-import datetime  
+#entry_service.py
+import datetime 
 
-from flask import request 
-from app.main.model.entries import Entry, MockDB
+from flask import request
 
-def add_entry(data):
+from app.main.model.entries import Entry
+from app.main.model.db import DatabaseConnection
+
+# Establish DB connection and Set cursor
+conn = DatabaseConnection()
+cursor = conn.cursor 
+dict_cursor = conn.dict_cursor
+
+def add_entry(data, owner):
     """
-    CREATE an entry
+    CREATE an ENTRY using information in payload
     """
-    title = data['title']
-    content = data['content']
-    # Accept only string
-    if isinstance(title, (int, float, complex)) or isinstance(content, (int, float, complex)):
-        return {
-            'error':'Invalid Input!'
-        }, 400
-    # Reject null values
-    if not title or not content:
-        return {
-            'error' : 'All fields required!'
-        }, 400
-    # Reject empty string
-    elif len(title.split()) == 0 or len(content.split()) == 0:
-        return {
-            'error':'Invalid input'
-        }, 400
-    existing_entries = MockDB.get_all_entries()
-    if [entry for entry in existing_entries if entry['title']==title]:
-        return {
-            'error' : 'Entry already exists!'
-        }, 409        
-    # Once checks pass, create entry object
-    new_entry = Entry(title=title,
-                      content=content)
-    # Add it to DB
-    MockDB.entries.append(new_entry) 
+    title = data["title"]
+    content = data["content"]
+    
+    # Check if entry exists in DB
+    new_entry = Entry.query_entry_by_title(dict_cursor, title)
+    if not new_entry:
+        try:
+            if not title or not content:
+                return {
+                    "status":"failed!",
+                    "error":"All fields required!",
+                }, 400
+              
+        except (KeyError) as e:
+            return {
+                "message":str(e)
+            }                
 
+        Entry.add_entry_query(cursor, title, content, owner)
+        new_entry_candidate = Entry.query_entry_by_title(dict_cursor, title)
+        if new_entry_candidate:
+            return {
+                "status":"success!",
+                "message":"Entry added!"
+            }, 201
     return {
-        'message' : 'Entry Added!',
-        'entry' : new_entry.display_entry_holder()
-    }, 201
+        "status":"failed!",
+        "message":"Entry with same title exists!"
+    }, 409
 
-def get_all_entries():
+def get_all_entries(owner):
     """
-    FETCH all entries
+    FECTH ALL ENTRIES belonging to a user
     """
-    # Get a list of all entry objects
-    entries = [entry for entry in MockDB.entries]
+    entries = Entry.query_all_entries(dict_cursor, owner)
     if not entries:
         return {
-            'message' : 'No entries available!'
+            "error":"No entries exist!"
         }, 404
     return entries, 200
 
-def get_one_entry(entry_id):
+def get_one_entry(entry_id, owner):
     """
-    FETCH one entry
+    FECTH ONE ENTRY belonging to a user
     """
-    entry = MockDB.get_entry_by_id(entry_id) 
-    if not entry:
-        return {
-            'message' : 'No entry found!'       
-        }, 404
-    return entry, 200
+    entry = Entry.query_entry_by_id(dict_cursor, entry_id)
 
-def modify_entry(entry_id, data):
-    """
-    MODIFY an entry
-    """
-    # Get the entry
-    entry = MockDB.get_entry_by_id(entry_id)
-    # If entry inexistent send message
-    if not entry:
+    if entry is None:
         return {
-            'error' : 'Entry not found'
+            "error":"Entry does not exist!"
         }, 404
-    # Get the update payload
-    title = data['title']
-    content = data['content']
-    # Remove existing object
-    MockDB.entries.remove(entry)
-    # Check if title and content in payload then update 
-    if title:
-        entry.title = data['title']
-    if content:
-        entry.content = data['content']
-    entry.date_created = datetime.datetime.utcnow()
-    # Add modified entry    
-    MockDB.entries.append(entry) 
-    return {
-        'message': 'Successfully updated!',
-        'entry' : entry.display_entry_holder()
-        }, 200
+    
+    return entry
 
-def remove_entry(entry_id):
+def modify_entry(entry_id, owner, data):
     """
-    REMOVE an entry
+    MODIFY ONE ENTRY belonging to a user
     """
-    # Get the entry
-    entry = MockDB.get_entry_by_id(entry_id)
-    # If entry inexistent send message
-    if not entry:
-        return {
-            'error' : 'Entry not found'
-        }, 404   
-    MockDB.entries.remove(entry)
+    
+    updated_entry = Entry.query_entry_update(dict_cursor, cursor, entry_id, owner, data)
+    
     return {
-        'message': 'Successfully deleted!!'        
-        }, 200
+        "message":"Successfully updated entry!",
+        "entry": updated_entry
+    }, 200
+
+def remove_entry(owner, entry_id):
+    """
+    REMOVE an Entry belonging to a user
+    """
+    Entry.query_remove_entry(dict_cursor,cursor,entry_id,owner)
+    return {
+        "message":"Entry deleted!"
+    }, 200
+
+
+
+

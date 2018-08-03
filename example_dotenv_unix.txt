@@ -1,0 +1,7 @@
+export SECRET_KEY='putyourshere'
+export APP_CONFIG='putyourshere'
+export DB_NAME='putyourshere'
+export DB_USER='putyourshere'
+export DB_PWD='putyourshere'
+export DB_HOST='putyourshere'
+export DB_PORT='putyourshere'

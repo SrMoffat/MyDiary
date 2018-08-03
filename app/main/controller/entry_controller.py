@@ -1,60 +1,108 @@
 #entry_controller.py
-from flask import request 
+
+from flask import request
 from flask_restplus import Resource
 
 from ..utils.dto import EntryDto
+from ..utils.decorators import token_required
 from ..service.entry_service import add_entry, get_all_entries, get_one_entry, modify_entry, remove_entry
 
 api = EntryDto.api
-entry = EntryDto.entry
+entry_model = EntryDto.entry_model
 
-@api.route('/entries')        
+
+@api.route("/entries")
 class Entries(Resource):
     """
-    The Entry Resource for the API
+    ENTRIES Resource
     """
-    @api.expect(entry, validate=True)
-    @api.response(201, 'Entry succesfully added!')
-    def post(self):
+    @api.doc("Add New Entry")
+    @api.doc(
+        responses={
+            201:"Added entry!",
+            409:"Entry exists!!",
+            400:"Invalid Input!"
+        },
+        security="apiKey")
+    @api.expect(entry_model, validate=True)
+    @token_required
+    def post(self, user_id):
         """
-        CREATE an entry
+        ADD an entry
         """
         data = request.json
-        return add_entry(data=data)
+        return add_entry(data, self)
 
-    @api.marshal_with(entry, envelope='entries')
-    @api.response(200, 'Successfully fetched entries!')
-    def get(self):
+    @api.doc("Fetch all entries")
+    @api.doc(
+        responses={
+            201:"Successfully fetched entries!",
+            400:"Invalid Input!",
+            404:"No entries found!",
+        },
+        security="apiKey")
+    @api.marshal_with(entry_model, envelope="entries")
+    @token_required
+    def get(self, user_id):
         """
-        FETCH entries
+        FETCH all entries
         """
-        return get_all_entries()
+        return get_all_entries(self)
 
-@api.route('/entries/<entry_id>')
-@api.param('entry_id' , 'The identifier for the entry')
-@api.response(404, 'Entry not found!')
-class Entry(Resource):
+@api.route("/entries/<int:entry_id>")
+class SingleEntry(Resource):
     """
-    The Single Entry Resource for the API
+    Single ENTRY Resource
     """
-    @api.marshal_with(entry, envelope='entry')
-    @api.response(200, 'Successfully fetched an entry!')
-    def get(self, entry_id):
+    @api.doc("Get an Entry")
+    @api.doc(
+        responses={
+            200:"Fetch Successful!",
+            400:"Bad Request!",
+            404:"Entry not found!"
+        },
+        security="apiKey")
+    @api.marshal_with(entry_model, envelope="entry")
+    @token_required
+    def get(self, user_id, entry_id):
         """
         FETCH an entry
         """
-        return get_one_entry(entry_id)
+        try:
+            return get_one_entry(entry_id, self)
+        except:
+            return {
+                "error":"Entry not found!"
+            }
 
-    def put(self, entry_id):
+    @api.doc("Modify an Entry")
+    @api.doc(
+        responses={
+            200:"Fetch Successful!",
+            400:"Bad Request!",
+            404:"Entry not found!"
+        },
+        security="apiKey"
+    )
+    @token_required
+    def put(self, user_id, entry_id):
         """
         MODIFY an entry
         """
         data = request.json
-        return modify_entry(entry_id, data)
+        return modify_entry(self, entry_id, data)
 
-    def delete(self, entry_id):
+    @api.doc("Remove an Entry")
+    @api.doc(
+        responses={
+            200:"Successfully deleted!",
+            400:"Bad Request!",
+            404:"Entry not found!"
+        },
+        security="apiKey")
+    @token_required
+    def delete(self, user_id, entry_id):
         """
-        REMOVE an entry
+        REMOVE an Entry
         """
-        return remove_entry(entry_id)
-           
+        return remove_entry(user_id,entry_id)
