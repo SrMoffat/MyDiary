@@ -3,6 +3,9 @@ import jwt
 from functools import wraps
 
 from flask import request
+from app.main.utils.dto import EntryDto
+
+api = EntryDto.api
 
 def token_required(f):
     """
@@ -15,9 +18,7 @@ def token_required(f):
         if "token" in request.headers:
             token = request.headers["token"]
         if not token:
-            return {
-                "error":"Token is missing!"
-            }
+            api.abort(404,"Token is missing")            
         try:
             payload = jwt.decode(token, "SECRET_KEY")
             user_id = str(payload["sub"])

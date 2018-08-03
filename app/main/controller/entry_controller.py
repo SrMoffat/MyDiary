@@ -71,9 +71,7 @@ class SingleEntry(Resource):
         try:
             return get_one_entry(entry_id, self)
         except:
-            return {
-                "error":"Entry not found!"
-            }
+            api.abort(404, "error: Entry with id: {} not found".format(entry_id))
 
     @api.doc("Modify an Entry")
     @api.doc(

@@ -5,6 +5,9 @@ from flask import request
 
 from app.main.model.entries import Entry
 from app.main.model.db import DatabaseConnection
+from app.main.utils.dto import EntryDto
+
+api = EntryDto.api
 
 # Establish DB connection and Set cursor
 conn = DatabaseConnection()
@@ -51,9 +54,7 @@ def get_all_entries(owner):
     """
     entries = Entry.query_all_entries(dict_cursor, owner)
     if not entries:
-        return {
-            "error":"No entries exist!"
-        }, 404
+        api.abort(404, "error: No entries exist!")
     return entries, 200
 
 def get_one_entry(entry_id, owner):
@@ -63,10 +64,7 @@ def get_one_entry(entry_id, owner):
     entry = Entry.query_entry_by_id(dict_cursor, entry_id)
 
     if entry is None:
-        return {
-            "error":"Entry does not exist!"
-        }, 404
-    
+        api.abort(404, "error: Entry with id: {} does not exist!".format(entry_id))    
     return entry
 
 def modify_entry(entry_id, owner, data):

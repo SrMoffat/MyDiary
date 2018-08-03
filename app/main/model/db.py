@@ -7,7 +7,11 @@ class DatabaseConnection(object):
     """
     The DB Connection Operations
     """
-    def __init__(self):    
+    def __init__(self):
+        if os.getenv("DB_NAME") is None:
+            DATABASE_URI = "postgres://hxvydazlnrmxle:5833dbd808eb14d23ed84175ea265b34dd3dcb352a80bdf952c840e5fe480eaf@ec2-23-23-242-163.compute-1.amazonaws.com:5432/da0b1qovika6ca"  
+        else:
+            DATABASE_URI = "postgres://postgres:rootuser@localhost/mydiary_db"
         self.connection = psycopg2.connect(database=os.getenv("DB_NAME"), 
                                             user=os.getenv("DB_USER"), 
                                             password=os.getenv("DB_PWD"),

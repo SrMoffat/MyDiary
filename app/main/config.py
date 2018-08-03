@@ -6,6 +6,7 @@ class Config(object):
     DEBUG = False
     TESTING = False
     RESTPLUS_VALIDATE = True
+    ERROR_404_HELP = False
 
 class DevelopmentConfig(Config):
     DEBUG = True
