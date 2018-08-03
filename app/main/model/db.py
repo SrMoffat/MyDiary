@@ -2,7 +2,7 @@
 import os
 import psycopg2
 import psycopg2.extras as extras
-import urllib.parse as urlparse
+from urlparse import urlparse
 
 class DatabaseConnection(object):
     """
@@ -17,15 +17,17 @@ class DatabaseConnection(object):
     
     def connect(self):
         db_uri = os.getenv("DATABASE_URI")
-        result = urlparse.urlparse(db_uri)
+        result = urlparse(db_uri)
         host = result.hostname
         role = result.username
         pwd = result.password
         database = result.path[1:]
+        
         return psycopg2.connect(database=database, 
                                 user=role, 
                                 password=pwd,
-                                host=host)
+                                host="localhost",
+                                port="5432")
 
     def create_tables(self):
         """
