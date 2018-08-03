@@ -1,4 +1,7 @@
-#app __init__.py
+"""
+The module instantiates the API with the 'api' blueprint
+The module registers the namespaces
+"""
 from flask_restplus import Api
 from flask import Blueprint
 

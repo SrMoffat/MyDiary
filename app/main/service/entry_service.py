@@ -86,7 +86,7 @@ def remove_entry(owner, entry_id):
     Entry.query_remove_entry(dict_cursor,cursor,entry_id,owner)
     return {
         "message":"Entry deleted!"
-    }, 200
+    }, 204
 
 
 

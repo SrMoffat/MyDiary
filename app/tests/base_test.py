@@ -1,4 +1,6 @@
-#base_test.py
+"""
+The Base Test Class 
+"""
 import json
 
 from flask_testing import TestCase
@@ -11,8 +13,7 @@ from app.main.model.entries import Entry
 class BaseTestCase(TestCase):
     """
     The Base Class for the Tests
-    """
-    
+    """   
     @staticmethod
     def create_app():
         """

@@ -123,5 +123,5 @@ class TestEntries(BaseTestCase):
                                             "token":token,
                                             "content-type":"application/json"
                                         })
-            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.status_code, 204)
             

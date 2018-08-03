@@ -1,4 +1,6 @@
-#manage.py
+"""
+The manage module is the entry for the app
+"""
 import os
 from flask_script import Manager
 
@@ -10,8 +12,11 @@ app.register_blueprint(blueprint)
 manager = Manager(app)
 
 @manager.command
-def run(): 
+def run():
+    """
+    RUN the application
+    """
     app.run()
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     manager.run()
