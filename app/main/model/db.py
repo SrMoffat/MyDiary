@@ -2,7 +2,7 @@
 import os
 import psycopg2
 import psycopg2.extras as extras
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 class DatabaseConnection(object):
     """
