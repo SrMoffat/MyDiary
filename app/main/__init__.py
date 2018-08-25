@@ -2,12 +2,14 @@
 import os
 
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 from .config import app_configs
 
 def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(app_configs[os.getenv('APP_CONFIG')])
+    CORS(app)
     
     @app.errorhandler(404)
     def error_404(error):
